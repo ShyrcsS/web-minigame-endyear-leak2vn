@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leak2VN End-Year Event 2025</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./assets/logo.svg" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>Genshin Impact Leak 2VN • Event Cuối Năm 2025</h1>
+      </header>
+
+      <section id="step-intake" class="card">
+        <h2 class="card__title">1) Xác minh thông tin</h2>
+        <p class="muted">Bắt buộc: ảnh chụp từ Hoyolab <b>thấy rõ</b> tên ingame, UID, số ngày chơi, và thành tựu.</p>
+
+        <form id="intake-form" class="form">
+          <label class="field">
+            <span class="field__label">UID</span>
+            <input id="uid" name="uid" inputmode="numeric" autocomplete="off" placeholder="VD: 831135168" required />
+          </label>
+
+          <label class="field">
+            <span class="field__label">Tên ingame</span>
+            <input id="ingameName" name="ingameName" autocomplete="off" placeholder="VD: Shyrcs" required />
+          </label>
+
+          <label class="field">
+            <span class="field__label">Link Facebook cá nhân</span>
+            <input id="fbLink" name="fbLink" type="url" autocomplete="off" placeholder="https://www.facebook.com/shyrcs.neko/" required />
+            <span class="field__hint">Dùng để liên hệ nếu trúng GA.</span>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Tải ảnh chụp (PNG/JPG)</span>
+            <input id="screenshot" name="screenshot" type="file" accept="image/*" required />
+            <span class="field__hint">Ảnh là bắt buộc. Phải thấy rõ: Tên ingame + UID + Số ngày chơi + Thành tựu</span>
+          </label>
+
+          <div id="screenshot-preview" class="preview" aria-live="polite"></div>
+
+          <div class="actions">
+            <button type="submit" class="btn btn--primary">Bắt đầu Quiz Lore</button>
+            <button type="button" id="btn-reset" class="btn">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="step-quiz" class="card hidden">
+        <h2 class="card__title">2) Giải Đố Lore (10 câu • 10s/câu)</h2>
+        <div class="row">
+          <div class="pill">Câu: <span id="q-idx">0</span>/10</div>
+          <div class="pill">Thời gian: <span id="q-timer">10</span>s</div>
+          <!-- <div class="pill">Điểm: <span id="q-score">0</span></div> -->
+        </div>
+
+        <div id="quiz-box" class="quiz">
+          <div class="quiz__q" id="q-text">Đang tải câu hỏi…</div>
+          <div class="quiz__choices" id="q-choices"></div>
+          <div class="quiz__footer">
+            <button id="btn-skip" class="btn" type="button">Bỏ qua</button>
+          </div>
+        </div>
+
+        <div id="quiz-done" class="hidden">
+          <p><b>Hoàn thành Quiz!</p>
+            <!-- </b> Điểm lore: <span id="quiz-final-score">0</span> -->
+          <button id="btn-go-ga" class="btn btn--primary" type="button">Tham gia Giveaway</button>
+        </div>
+      </section>
+
+      <section id="step-ga" class="card hidden">
+        <h2 class="card__title">Minigame !!!</h2>
+        <p class="muted">Tham Gia Giveaway bằng việc nhấn vô "Tham Gia Vòng Quay", bạn có thể tăng tỷ lệ thắng của mình bằng việc tham gia và đứng top ở Minigame đó nha!</p>
+        <p class="muted">Tổng Kết Vào 31/12/2025!</p>
+
+        <div id="ga-lobby" class="ga-lobby">
+          <div class="ga-wheel-section">
+            <h3 class="ga-game__title">Vòng quay may mắn</h3>
+            <div class="ga-wheel-container">
+              <div class="ga-wheel" id="ga-wheel">
+                <div class="ga-wheel__center">🎁</div>
+              </div>
+            </div>
+            <div class="ga-wheel-info" id="ga-wheel-info">
+              <p class="muted tiny">Tỷ Lệ Thắng: <b id="wheel-win-rate">5%</b></p>
+            </div>
+            <div class="row" style="justify-content: center;">
+              <button id="btn-wheel-spin" class="btn btn--primary" type="button">Tham Gia Vòng Quay</button>
+            </div>
+          </div>
+
+          <div class="card__divider"></div>
+
+          <div class="ga-top">
+            <h3 class="ga-game__title">Top Minigame </h3>
+            <div class="ga-top__grid">
+              <div>
+                <h4 class="tiny">MiniGame 1: Đoán vũ khí</h4>
+                <ol id="ga-top-g1" class="ga-top__list"></ol>
+              </div>
+              <div>
+                <h4 class="tiny">MiniGame 2: Xếp hình</h4>
+                <ol id="ga-top-g2" class="ga-top__list"></ol>
+              </div>
+              <div>
+                <h4 class="tiny">MiniGame 3: Nhìn Hình Đoán Vợ</h4>
+                <ol id="ga-top-g3" class="ga-top__list"></ol>
+              </div>
+            </div>
+          </div>
+          <div class="ga-self">
+            <h3 class="ga-game__title">Best của bạn</h3>
+            <div id="ga-self-row" class="pill">Chưa có dữ liệu.</div>
+          </div>
+          <div class="actions" style="justify-content: center;">
+            <button id="btn-ga-g1" class="btn" type="button">Chơi Game 1</button>
+            <button id="btn-ga-g2" class="btn" type="button">Chơi Game 2</button>
+            <button id="btn-ga-g3" class="btn" type="button">Chơi Game 3</button>
+          </div>
+        </div>
+
+        <div id="ga-play" class="hidden"></div>
+      </section>
+
+      <footer class="footer">
+        <p class="muted tiny" style="text-align: center;">MVP • Leak2VN • 24/12/2025</p>
+      </footer>
+    </main>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

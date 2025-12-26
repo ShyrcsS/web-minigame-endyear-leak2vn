@@ -1,0 +1,986 @@
+[
+  {
+    "name": "Vô Phong Kiếm",
+    "icon": "UI_EquipIcon_Sword_Blunt"
+  },
+  {
+    "name": "Kiếm Bạc",
+    "icon": "UI_EquipIcon_Sword_Silver"
+  },
+  {
+    "name": "Lãnh Nhẫn",
+    "icon": "UI_EquipIcon_Sword_Steel"
+  },
+  {
+    "name": "Thần Kiếm Lê Minh",
+    "icon": "UI_EquipIcon_Sword_Dawn"
+  },
+  {
+    "name": "Kiếm Lữ Hành",
+    "icon": "UI_EquipIcon_Sword_Traveler"
+  },
+  {
+    "name": "Kiếm Sắt Đen",
+    "icon": "UI_EquipIcon_Sword_Darker"
+  },
+  {
+    "name": "Đao Săn Cá",
+    "icon": "UI_EquipIcon_Sword_Sashimi"
+  },
+  {
+    "name": "Kiếm Phi Thiên",
+    "icon": "UI_EquipIcon_Sword_Mitsurugi"
+  },
+  {
+    "name": "Tây Phong Kiếm",
+    "icon": "UI_EquipIcon_Sword_Zephyrus"
+  },
+  {
+    "name": "Kiếm Sáo",
+    "icon": "UI_EquipIcon_Sword_Troupe"
+  },
+  {
+    "name": "Kiếm Tế Lễ",
+    "icon": "UI_EquipIcon_Sword_Fossil"
+  },
+  {
+    "name": "Trường Kiếm Tông Thất",
+    "icon": "UI_EquipIcon_Sword_Theocrat"
+  },
+  {
+    "name": "Tiếng Hét Của Rồng",
+    "icon": "UI_EquipIcon_Sword_Rockkiller"
+  },
+  {
+    "name": "Mẫu Trảm Nham",
+    "icon": "UI_EquipIcon_Sword_Proto"
+  },
+  {
+    "name": "Thiết Phong Kích",
+    "icon": "UI_EquipIcon_Sword_Exotic"
+  },
+  {
+    "name": "Hắc Nham Trường Kiếm",
+    "icon": "UI_EquipIcon_Sword_Blackrock"
+  },
+  {
+    "name": "Kiếm Đen",
+    "icon": "UI_EquipIcon_Sword_Bloodstained"
+  },
+  {
+    "name": "Tia Sáng Nơi Hẻm Tối",
+    "icon": "UI_EquipIcon_Sword_Outlaw"
+  },
+  {
+    "name": "Kiếm Giáng Lâm",
+    "icon": "UI_EquipIcon_Sword_Psalmus"
+  },
+  {
+    "name": "Răng Nanh Rỉ Sét",
+    "icon": "UI_EquipIcon_Sword_Magnum"
+  },
+  {
+    "name": "Đoản Đao Amenoma",
+    "icon": "UI_EquipIcon_Sword_Bakufu"
+  },
+  {
+    "name": "Con Thoi Chu Sa",
+    "icon": "UI_EquipIcon_Sword_Opus"
+  },
+  {
+    "name": "Kagotsurube Isshin",
+    "icon": "UI_EquipIcon_Sword_Youtou"
+  },
+  {
+    "name": "Kiếm Gỗ",
+    "icon": "UI_EquipIcon_Sword_Arakalari"
+  },
+  {
+    "name": "Ánh Trăng Xiphos",
+    "icon": "UI_EquipIcon_Sword_Pleroma"
+  },
+  {
+    "name": "Danh Đao \"Trường Phái Isshin\"",
+    "icon": "UI_EquipIcon_Sword_YoutouEnchanted"
+  },
+  {
+    "name": "Danh Đao \"Trường Phái Isshin\"",
+    "icon": "UI_EquipIcon_Sword_YoutouShattered"
+  },
+  {
+    "name": "Danh Đao \"Trường Phái Isshin\"",
+    "icon": "UI_EquipIcon_Sword_YoutouEnchanted"
+  },
+  {
+    "name": "Toukabou Shigure",
+    "icon": "UI_EquipIcon_Sword_Kasabouzu"
+  },
+  {
+    "name": "Nanh Sói",
+    "icon": "UI_EquipIcon_Sword_Boreas"
+  },
+  {
+    "name": "Nhạc Khúc Biển Sâu",
+    "icon": "UI_EquipIcon_Sword_Vorpal"
+  },
+  {
+    "name": "Ống Đồng Fleuve Cendre",
+    "icon": "UI_EquipIcon_Sword_Machination"
+  },
+  {
+    "name": "Kiếm Bến Tàu",
+    "icon": "UI_EquipIcon_Sword_Mechanic"
+  },
+  {
+    "name": "Lưỡi Kiếm Narzissenkreuz",
+    "icon": "UI_EquipIcon_Sword_Purewill"
+  },
+  {
+    "name": "Lưỡi Kiếm Narzissenkreuz",
+    "icon": "UI_EquipIcon_Sword_Purewill"
+  },
+  {
+    "name": "Xương Cứng",
+    "icon": "UI_EquipIcon_Sword_Umpakati"
+  },
+  {
+    "name": "Sáo Ezpitzal",
+    "icon": "UI_EquipIcon_Sword_Isikhulu"
+  },
+  {
+    "name": "Tai Họa Eshu",
+    "icon": "UI_EquipIcon_Sword_SacrificialNgombe"
+  },
+  {
+    "name": "Còi Yên Tĩnh",
+    "icon": "UI_EquipIcon_Sword_Ilmarinen"
+  },
+  {
+    "name": "Bình Minh Của Người Dệt Trăng",
+    "icon": "UI_EquipIcon_Sword_Miekka"
+  },
+  {
+    "name": "Phong Ưng Kiếm",
+    "icon": "UI_EquipIcon_Sword_Falcon"
+  },
+  {
+    "name": "Thiên Không Kiếm",
+    "icon": "UI_EquipIcon_Sword_Dvalin"
+  },
+  {
+    "name": "Lời Thề Tự Do Cổ Xưa",
+    "icon": "UI_EquipIcon_Sword_Widsith"
+  },
+  {
+    "name": "Kiếm Chước Phong",
+    "icon": "UI_EquipIcon_Sword_Kunwu"
+  },
+  {
+    "name": "Bàn Nham Kết Lục",
+    "icon": "UI_EquipIcon_Sword_Morax"
+  },
+  {
+    "name": "Nham Kết Lục",
+    "icon": "UI_EquipIcon_Sword_Blunt"
+  },
+  {
+    "name": "Hư Vô",
+    "icon": "UI_EquipIcon_Sword_Blunt"
+  },
+  {
+    "name": "Ánh Sáng Đêm Sương Mù",
+    "icon": "UI_EquipIcon_Sword_Narukami"
+  },
+  {
+    "name": "Haran Geppaku Futsu",
+    "icon": "UI_EquipIcon_Sword_Amenoma"
+  },
+  {
+    "name": "Chìa Khóa Khaj-Nisut",
+    "icon": "UI_EquipIcon_Sword_Deshret"
+  },
+  {
+    "name": "Ánh Lá Phán Quyết",
+    "icon": "UI_EquipIcon_Sword_Ayus"
+  },
+  {
+    "name": "Sắc Nước Lộng Lẫy",
+    "icon": "UI_EquipIcon_Sword_Regalis"
+  },
+  {
+    "name": "Uraku Misugiri",
+    "icon": "UI_EquipIcon_Sword_Needle"
+  },
+  {
+    "name": "Xá Tội",
+    "icon": "UI_EquipIcon_Sword_Estoc"
+  },
+  {
+    "name": "Khúc Ca Núi Đá",
+    "icon": "UI_EquipIcon_Sword_XochitlsTube"
+  },
+  {
+    "name": "Thương Diệu",
+    "icon": "UI_EquipIcon_Sword_OuterSword"
+  },
+  {
+    "name": "Hắc Ám Xâm Thực",
+    "icon": "UI_EquipIcon_Sword_Motsognir"
+  },
+  {
+    "name": "Mảnh Trăng Ánh Sáng",
+    "icon": "UI_EquipIcon_Sword_SilverwareSaw"
+  },
+  {
+    "name": "Kiếm Huấn Luyện",
+    "icon": "UI_EquipIcon_Claymore_Aniki"
+  },
+  {
+    "name": "Kiếm Dụng Binh",
+    "icon": "UI_EquipIcon_Claymore_Oyaji"
+  },
+  {
+    "name": "Kiếm Thiết Ảnh",
+    "icon": "UI_EquipIcon_Claymore_Glaive"
+  },
+  {
+    "name": "Kiếm Huyết Rồng",
+    "icon": "UI_EquipIcon_Claymore_Siegfry"
+  },
+  {
+    "name": "Kiếm Bạch Thiết",
+    "icon": "UI_EquipIcon_Claymore_Tin"
+  },
+  {
+    "name": "Kiếm Thạch Anh",
+    "icon": "UI_EquipIcon_Claymore_Quartz"
+  },
+  {
+    "name": "Gậy Thu Phục",
+    "icon": "UI_EquipIcon_Claymore_Reasoning"
+  },
+  {
+    "name": "Đại Kiếm Phi Thiên",
+    "icon": "UI_EquipIcon_Claymore_Mitsurugi"
+  },
+  {
+    "name": "Đại Kiếm Tây Phong",
+    "icon": "UI_EquipIcon_Claymore_Zephyrus"
+  },
+  {
+    "name": "Kiếm Chuông",
+    "icon": "UI_EquipIcon_Claymore_Troupe"
+  },
+  {
+    "name": "Đại Kiếm Tế Lễ",
+    "icon": "UI_EquipIcon_Claymore_Fossil"
+  },
+  {
+    "name": "Đại Kiếm Tông Thất",
+    "icon": "UI_EquipIcon_Claymore_Theocrat"
+  },
+  {
+    "name": "Vũ Tài",
+    "icon": "UI_EquipIcon_Claymore_Perdue"
+  },
+  {
+    "name": "Mẫu Cổ Hoa",
+    "icon": "UI_EquipIcon_Claymore_Proto"
+  },
+  {
+    "name": "Kiếm Bạch Ảnh",
+    "icon": "UI_EquipIcon_Claymore_Exotic"
+  },
+  {
+    "name": "Hắc Nham Trảm Đao",
+    "icon": "UI_EquipIcon_Claymore_Blackrock"
+  },
+  {
+    "name": "Kiếm Li Cốt",
+    "icon": "UI_EquipIcon_Claymore_Kione"
+  },
+  {
+    "name": "Thiên Nham Cổ Kiếm",
+    "icon": "UI_EquipIcon_Claymore_Lapis"
+  },
+  {
+    "name": "Tuyết Vùi Tinh Ngân",
+    "icon": "UI_EquipIcon_Claymore_Dragonfell"
+  },
+  {
+    "name": "Vua Biển Hàng Hiệu",
+    "icon": "UI_EquipIcon_Claymore_MillenniaTuna"
+  },
+  {
+    "name": "Trường Đao Katsuragi",
+    "icon": "UI_EquipIcon_Claymore_Bakufu"
+  },
+  {
+    "name": "Sắc Nước Makhaira",
+    "icon": "UI_EquipIcon_Claymore_Pleroma"
+  },
+  {
+    "name": "Akuoumaru",
+    "icon": "UI_EquipIcon_Claymore_Maria"
+  },
+  {
+    "name": "Vương Khí Rừng Sâu",
+    "icon": "UI_EquipIcon_Claymore_Arakalari"
+  },
+  {
+    "name": "Đóa Hoa Tôn Màu Thép",
+    "icon": "UI_EquipIcon_Claymore_Fleurfair"
+  },
+  {
+    "name": "Gậy Đàm Phán",
+    "icon": "UI_EquipIcon_Claymore_BeastTamer"
+  },
+  {
+    "name": "Bóng Tối Thủy Triều",
+    "icon": "UI_EquipIcon_Claymore_Vorpal"
+  },
+  {
+    "name": "\"Bá Vương Tối Thượng Siêu Cấp Ma Kiếm\"",
+    "icon": "UI_EquipIcon_Claymore_Champion"
+  },
+  {
+    "name": "Máy Cưa Cầm Tay",
+    "icon": "UI_EquipIcon_Claymore_Mechanic"
+  },
+  {
+    "name": "Móc Trĩu Quả",
+    "icon": "UI_EquipIcon_Claymore_Umpakati"
+  },
+  {
+    "name": "Đao Chấn Động",
+    "icon": "UI_EquipIcon_Claymore_Isikhulu"
+  },
+  {
+    "name": "Trí Tuệ Dung Luyện",
+    "icon": "UI_EquipIcon_Claymore_Polilith"
+  },
+  {
+    "name": "Chìa Khóa Vạn Năng",
+    "icon": "UI_EquipIcon_Claymore_Ilmarinen"
+  },
+  {
+    "name": "Thiên Không Kiêu Ngạo",
+    "icon": "UI_EquipIcon_Claymore_Dvalin"
+  },
+  {
+    "name": "Đường Cùng Của Sói",
+    "icon": "UI_EquipIcon_Claymore_Wolfmound"
+  },
+  {
+    "name": "Tiếng Gió Trong Rừng Thông",
+    "icon": "UI_EquipIcon_Claymore_Widsith"
+  },
+  {
+    "name": "Kiếm Vô Công",
+    "icon": "UI_EquipIcon_Claymore_Kunwu"
+  },
+  {
+    "name": "Đề Ách Ngư",
+    "icon": "UI_EquipIcon_Claymore_Aniki"
+  },
+  {
+    "name": "Dị Sử",
+    "icon": "UI_EquipIcon_Claymore_Aniki"
+  },
+  {
+    "name": "Xích Giác Phá Thạch Đao",
+    "icon": "UI_EquipIcon_Claymore_Itadorimaru"
+  },
+  {
+    "name": "Hải Đăng Bờ Biển Lau",
+    "icon": "UI_EquipIcon_Claymore_Deshret"
+  },
+  {
+    "name": "Phán Quyết",
+    "icon": "UI_EquipIcon_Claymore_GoldenVerdict"
+  },
+  {
+    "name": "Nanh Sơn Vương",
+    "icon": "UI_EquipIcon_Claymore_EmeraldSword"
+  },
+  {
+    "name": "Thiên Dương Rực Lửa",
+    "icon": "UI_EquipIcon_Claymore_RadianceSword"
+  },
+  {
+    "name": "Thương Tân Thủ",
+    "icon": "UI_EquipIcon_Pole_Gewalt"
+  },
+  {
+    "name": "Thương Sắt",
+    "icon": "UI_EquipIcon_Pole_Rod"
+  },
+  {
+    "name": "Thương Bạch Anh",
+    "icon": "UI_EquipIcon_Pole_Ruby"
+  },
+  {
+    "name": "Thuẫn Kích",
+    "icon": "UI_EquipIcon_Pole_Halberd"
+  },
+  {
+    "name": "Hắc Anh Thương",
+    "icon": "UI_EquipIcon_Pole_Noire"
+  },
+  {
+    "name": "Cột Cờ",
+    "icon": "UI_EquipIcon_Pole_Flagpole"
+  },
+  {
+    "name": "Tai Ương Của Rồng",
+    "icon": "UI_EquipIcon_Pole_Stardust"
+  },
+  {
+    "name": "Mẫu Tinh Liêm",
+    "icon": "UI_EquipIcon_Pole_Proto"
+  },
+  {
+    "name": "Lưu Nguyệt Châm",
+    "icon": "UI_EquipIcon_Pole_Exotic"
+  },
+  {
+    "name": "Thương Hắc Nham",
+    "icon": "UI_EquipIcon_Pole_Blackrock"
+  },
+  {
+    "name": "Thương Quyết Chiến",
+    "icon": "UI_EquipIcon_Pole_Gladiator"
+  },
+  {
+    "name": "Thương Thiên Nham",
+    "icon": "UI_EquipIcon_Pole_Lapis"
+  },
+  {
+    "name": "Thương Tây Phong",
+    "icon": "UI_EquipIcon_Pole_Zephyrus"
+  },
+  {
+    "name": "Thương Săn Tông Thất",
+    "icon": "UI_EquipIcon_Pole_Theocrat"
+  },
+  {
+    "name": "Thương Long Tích",
+    "icon": "UI_EquipIcon_Pole_Everfrost"
+  },
+  {
+    "name": "Giáo Thập Tự Kitain",
+    "icon": "UI_EquipIcon_Pole_Bakufu"
+  },
+  {
+    "name": "Lao Xiên Cá",
+    "icon": "UI_EquipIcon_Pole_Mori"
+  },
+  {
+    "name": "Vây Cá Chẻ Sóng",
+    "icon": "UI_EquipIcon_Pole_Maria"
+  },
+  {
+    "name": "Quán Nguyệt Thương",
+    "icon": "UI_EquipIcon_Pole_Arakalari"
+  },
+  {
+    "name": "Mũi Nhọn Của Gió",
+    "icon": "UI_EquipIcon_Pole_Windvane"
+  },
+  {
+    "name": "Khúc Ca Vịnh Hẹp",
+    "icon": "UI_EquipIcon_Pole_Shanty"
+  },
+  {
+    "name": "Thù Lao Của Chính Nghĩa",
+    "icon": "UI_EquipIcon_Pole_Vorpal"
+  },
+  {
+    "name": "Đối Thoại Của Hiền Giả Sa Mạc",
+    "icon": "UI_EquipIcon_Pole_Caduceus"
+  },
+  {
+    "name": "Mũi Khoan Thăm Dò",
+    "icon": "UI_EquipIcon_Pole_Mechanic"
+  },
+  {
+    "name": "Mũi Đinh Trấn Núi",
+    "icon": "UI_EquipIcon_Pole_Umpakati"
+  },
+  {
+    "name": "Vết Tích Cầu Vồng",
+    "icon": "UI_EquipIcon_Pole_Isikhulu"
+  },
+  {
+    "name": "Tamayuratei no Ohanashi",
+    "icon": "UI_EquipIcon_Pole_Aoandon"
+  },
+  {
+    "name": "Xẻng Đào Vàng",
+    "icon": "UI_EquipIcon_Pole_Ilmarinen"
+  },
+  {
+    "name": "Quyền Trượng Kẻ Thánh Tế",
+    "icon": "UI_EquipIcon_Pole_Krivule"
+  },
+  {
+    "name": "Trượng Hộ Ma",
+    "icon": "UI_EquipIcon_Pole_Homa"
+  },
+  {
+    "name": "Xương Sống Thiên Không",
+    "icon": "UI_EquipIcon_Pole_Dvalin"
+  },
+  {
+    "name": "Giáo Nịnh Thần",
+    "icon": "UI_EquipIcon_Pole_Kunwu"
+  },
+  {
+    "name": "Hòa Phác Diên",
+    "icon": "UI_EquipIcon_Pole_Morax"
+  },
+  {
+    "name": "Sát Chủ",
+    "icon": "UI_EquipIcon_Pole_Gewalt"
+  },
+  {
+    "name": "Hủy Diệt",
+    "icon": "UI_EquipIcon_Pole_Santika"
+  },
+  {
+    "name": "Đoạn Thảo Trường Đao",
+    "icon": "UI_EquipIcon_Pole_Narukami"
+  },
+  {
+    "name": "Quyền Trượng Cát Đỏ",
+    "icon": "UI_EquipIcon_Pole_Deshret"
+  },
+  {
+    "name": "Hình Thái Xích Nguyệt",
+    "icon": "UI_EquipIcon_Pole_BloodMoon"
+  },
+  {
+    "name": "Bi Ca Lumidouce",
+    "icon": "UI_EquipIcon_Pole_Muguet"
+  },
+  {
+    "name": "Nhạc Sĩ Hương Thơm",
+    "icon": "UI_EquipIcon_Pole_Trident"
+  },
+  {
+    "name": "Hào Quang Tách Rời",
+    "icon": "UI_EquipIcon_Pole_Perdix"
+  },
+  {
+    "name": "Tàn Tích Nhuốm Máu",
+    "icon": "UI_EquipIcon_Pole_TummaLyhty"
+  },
+  {
+    "name": "Nhật Ký Học Sinh",
+    "icon": "UI_EquipIcon_Catalyst_Apprentice"
+  },
+  {
+    "name": "Sổ Tay Ma Pháp",
+    "icon": "UI_EquipIcon_Catalyst_Pocket"
+  },
+  {
+    "name": "Tóm Tắt Ma Pháp",
+    "icon": "UI_EquipIcon_Catalyst_Intro"
+  },
+  {
+    "name": "Câu Chuyện Diệt Rồng",
+    "icon": "UI_EquipIcon_Catalyst_Pulpfic"
+  },
+  {
+    "name": "Tiểu Thuyết Dị Giới",
+    "icon": "UI_EquipIcon_Catalyst_Lightnov"
+  },
+  {
+    "name": "Quả Cầu Ngọc",
+    "icon": "UI_EquipIcon_Catalyst_Jade"
+  },
+  {
+    "name": "Ngọc Sinh Đôi",
+    "icon": "UI_EquipIcon_Catalyst_Phoney"
+  },
+  {
+    "name": "Hổ Phách Nguyệt",
+    "icon": "UI_EquipIcon_Catalyst_Amber"
+  },
+  {
+    "name": "Tây Phong Mật Điển",
+    "icon": "UI_EquipIcon_Catalyst_Zephyrus"
+  },
+  {
+    "name": "Chương Nhạc Lang Thang",
+    "icon": "UI_EquipIcon_Catalyst_Troupe"
+  },
+  {
+    "name": "Mảnh Chương Tế Lễ",
+    "icon": "UI_EquipIcon_Catalyst_Fossil"
+  },
+  {
+    "name": "Mật Pháp Tông Thất",
+    "icon": "UI_EquipIcon_Catalyst_Theocrat"
+  },
+  {
+    "name": "Nhật Nguyệt Hạp",
+    "icon": "UI_EquipIcon_Catalyst_Resurrection"
+  },
+  {
+    "name": "Mẫu Kim Phách",
+    "icon": "UI_EquipIcon_Catalyst_Proto"
+  },
+  {
+    "name": "Hải Đồ Vạn Quốc",
+    "icon": "UI_EquipIcon_Catalyst_Exotic"
+  },
+  {
+    "name": "Hắc Nham Phỉ Ngọc",
+    "icon": "UI_EquipIcon_Catalyst_Blackrock"
+  },
+  {
+    "name": "Chiêu Tâm",
+    "icon": "UI_EquipIcon_Catalyst_Truelens"
+  },
+  {
+    "name": "Rượu Và Thơ Nơi Hẻm Tối",
+    "icon": "UI_EquipIcon_Catalyst_Outlaw"
+  },
+  {
+    "name": "Trái Chịu Lạnh",
+    "icon": "UI_EquipIcon_Catalyst_Everfrost"
+  },
+  {
+    "name": "Tuyển tập các câu chuyện về Dodoco",
+    "icon": "UI_EquipIcon_Catalyst_Ludiharpastum"
+  },
+  {
+    "name": "Vòng Bạch Thần",
+    "icon": "UI_EquipIcon_Catalyst_Bakufu"
+  },
+  {
+    "name": "Con Ngươi Tuyên Thệ",
+    "icon": "UI_EquipIcon_Catalyst_Jyanome"
+  },
+  {
+    "name": "Sao Đêm Rong Ruổi",
+    "icon": "UI_EquipIcon_Catalyst_Pleroma"
+  },
+  {
+    "name": "Quả Mọng",
+    "icon": "UI_EquipIcon_Catalyst_Arakalari"
+  },
+  {
+    "name": "Ngọc Bích Hiến Tế",
+    "icon": "UI_EquipIcon_Catalyst_Yue"
+  },
+  {
+    "name": "Dòng Chảy Tinh Khiết",
+    "icon": "UI_EquipIcon_Catalyst_Vorpal"
+  },
+  {
+    "name": "Khúc Ca Xanh Bao La",
+    "icon": "UI_EquipIcon_Catalyst_DandelionPoem"
+  },
+  {
+    "name": "Sừng Rượu Vân Xanh",
+    "icon": "UI_EquipIcon_Catalyst_ConchSprayer"
+  },
+  {
+    "name": "Vòng Xoáy Cưỡi Sóng",
+    "icon": "UI_EquipIcon_Catalyst_Umpakati"
+  },
+  {
+    "name": "Vòng Yaxche",
+    "icon": "UI_EquipIcon_Catalyst_Isikhulu"
+  },
+  {
+    "name": "Đàn Thiên Quang",
+    "icon": "UI_EquipIcon_Catalyst_SeeliesLute"
+  },
+  {
+    "name": "Đèn Tủy Đen",
+    "icon": "UI_EquipIcon_Catalyst_Ilmarinen"
+  },
+  {
+    "name": "Sương Mai",
+    "icon": "UI_EquipIcon_Catalyst_Ziedas"
+  },
+  {
+    "name": "Quyển Thiên Không",
+    "icon": "UI_EquipIcon_Catalyst_Dvalin"
+  },
+  {
+    "name": "Điển Tích Tây Phong",
+    "icon": "UI_EquipIcon_Catalyst_Fourwinds"
+  },
+  {
+    "name": "Bài Thơ Kể Chuyện",
+    "icon": "UI_EquipIcon_Catalyst_Apprentice"
+  },
+  {
+    "name": "Khóa Trần Thế",
+    "icon": "UI_EquipIcon_Catalyst_Kunwu"
+  },
+  {
+    "name": "Ngọc Bích Huy Hoàng",
+    "icon": "UI_EquipIcon_Catalyst_Morax"
+  },
+  {
+    "name": "Vầng Trăng Bất Diệt",
+    "icon": "UI_EquipIcon_Catalyst_Kaleido"
+  },
+  {
+    "name": "Chân Ý Của Kagura",
+    "icon": "UI_EquipIcon_Catalyst_Narukami"
+  },
+  {
+    "name": "Cõi Mộng Ngàn Đêm",
+    "icon": "UI_EquipIcon_Catalyst_Ayus"
+  },
+  {
+    "name": "Hồi Ức Tulaytullah",
+    "icon": "UI_EquipIcon_Catalyst_Alaya"
+  },
+  {
+    "name": "Quản Đốc Vàng Ròng",
+    "icon": "UI_EquipIcon_Catalyst_Wheatley"
+  },
+  {
+    "name": "Nghi Thức Dòng Chảy Vĩnh Hằng",
+    "icon": "UI_EquipIcon_Catalyst_Iudex"
+  },
+  {
+    "name": "Dư Âm Tiếng Hạc",
+    "icon": "UI_EquipIcon_Catalyst_MountainGale"
+  },
+  {
+    "name": "Thời Khắc Lướt Sóng",
+    "icon": "UI_EquipIcon_Catalyst_MechaPufferfish"
+  },
+  {
+    "name": "Ánh Nhìn Tư Tế",
+    "icon": "UI_EquipIcon_Catalyst_Figurines"
+  },
+  {
+    "name": "Hòa Giấc Trong Nắng Mai",
+    "icon": "UI_EquipIcon_Catalyst_SakuraFan"
+  },
+  {
+    "name": "Tâm Niệm Sắc Màu",
+    "icon": "UI_EquipIcon_Catalyst_VaresaTransformer"
+  },
+  {
+    "name": "Kính Dệt Màn Đêm",
+    "icon": "UI_EquipIcon_Catalyst_MenulisRing"
+  },
+  {
+    "name": "Chân Ngôn Bí Hạp",
+    "icon": "UI_EquipIcon_Catalyst_Sistrum"
+  },
+  {
+    "name": "Dạ Khúc Hạ Màn",
+    "icon": "UI_EquipIcon_Catalyst_Brisingamen"
+  },
+  {
+    "name": "Cung Săn Bắn",
+    "icon": "UI_EquipIcon_Bow_Hunters"
+  },
+  {
+    "name": "Cung Săn Bắn Tôi Luyện",
+    "icon": "UI_EquipIcon_Bow_Old"
+  },
+  {
+    "name": "Cung Lông Quạ",
+    "icon": "UI_EquipIcon_Bow_Crowfeather"
+  },
+  {
+    "name": "Lời Thề Xạ Thủ Thần",
+    "icon": "UI_EquipIcon_Bow_Arjuna"
+  },
+  {
+    "name": "Cung Phản Khúc",
+    "icon": "UI_EquipIcon_Bow_Curve"
+  },
+  {
+    "name": "Nỏ Kéo",
+    "icon": "UI_EquipIcon_Bow_Sling"
+  },
+  {
+    "name": "Tín Sứ",
+    "icon": "UI_EquipIcon_Bow_Msg"
+  },
+  {
+    "name": "Cung Hắc Đàn",
+    "icon": "UI_EquipIcon_Bow_Hardwood"
+  },
+  {
+    "name": "Cung Tây Phong",
+    "icon": "UI_EquipIcon_Bow_Zephyrus"
+  },
+  {
+    "name": "Tuyệt Huyền",
+    "icon": "UI_EquipIcon_Bow_Troupe"
+  },
+  {
+    "name": "Cung Tế Lễ",
+    "icon": "UI_EquipIcon_Bow_Fossil"
+  },
+  {
+    "name": "Trường Cung Tông Thất",
+    "icon": "UI_EquipIcon_Bow_Theocrat"
+  },
+  {
+    "name": "Cung Rỉ Sét",
+    "icon": "UI_EquipIcon_Bow_Recluse"
+  },
+  {
+    "name": "Mẫu Đạm Nguyệt",
+    "icon": "UI_EquipIcon_Bow_Proto"
+  },
+  {
+    "name": "Cung Thép",
+    "icon": "UI_EquipIcon_Bow_Exotic"
+  },
+  {
+    "name": "Cung Hắc Nham",
+    "icon": "UI_EquipIcon_Bow_Blackrock"
+  },
+  {
+    "name": "Cung Sắc Xanh",
+    "icon": "UI_EquipIcon_Bow_Viridescent"
+  },
+  {
+    "name": "Thợ Săn Hẻm Tối",
+    "icon": "UI_EquipIcon_Bow_Outlaw"
+  },
+  {
+    "name": "Lạc Hà",
+    "icon": "UI_EquipIcon_Bow_Fallensun"
+  },
+  {
+    "name": "Điệu Van Ban Đêm",
+    "icon": "UI_EquipIcon_Bow_Nachtblind"
+  },
+  {
+    "name": "Bài Ca Hoa Gió",
+    "icon": "UI_EquipIcon_Bow_Fleurfair"
+  },
+  {
+    "name": "Cung Trừ Ma",
+    "icon": "UI_EquipIcon_Bow_Bakufu"
+  },
+  {
+    "name": "Kẻ Săn Mồi",
+    "icon": "UI_EquipIcon_Bow_Predator"
+  },
+  {
+    "name": "Ánh Trăng Mouun",
+    "icon": "UI_EquipIcon_Bow_Maria"
+  },
+  {
+    "name": "Cận Vệ Nhà Vua",
+    "icon": "UI_EquipIcon_Bow_Arakalari"
+  },
+  {
+    "name": "Sông Cạn",
+    "icon": "UI_EquipIcon_Bow_Fin"
+  },
+  {
+    "name": "Mỏ Cò Xuyên Thấu",
+    "icon": "UI_EquipIcon_Bow_Ibis"
+  },
+  {
+    "name": "Hậu Duệ Mặt Trời",
+    "icon": "UI_EquipIcon_Bow_Gurabad"
+  },
+  {
+    "name": "Khúc Ca Tĩnh Lặng",
+    "icon": "UI_EquipIcon_Bow_Vorpal"
+  },
+  {
+    "name": "Trúc Vân",
+    "icon": "UI_EquipIcon_Bow_Ultimatum"
+  },
+  {
+    "name": "Máy Đo Cự Ly",
+    "icon": "UI_EquipIcon_Bow_Mechanic"
+  },
+  {
+    "name": "Lông Vũ Thêu Hoa",
+    "icon": "UI_EquipIcon_Bow_Umpakati"
+  },
+  {
+    "name": "Phá Xích",
+    "icon": "UI_EquipIcon_Bow_Isikhulu"
+  },
+  {
+    "name": "Thanh Âm Lạnh Lẽo",
+    "icon": "UI_EquipIcon_Bow_Stinger"
+  },
+  {
+    "name": "Móc Cạm Bẫy",
+    "icon": "UI_EquipIcon_Bow_Ilmarinen"
+  },
+  {
+    "name": "Dây Mưa Của Cầu Vồng",
+    "icon": "UI_EquipIcon_Bow_ElegguaBow"
+  },
+  {
+    "name": "Cánh Thiên Không",
+    "icon": "UI_EquipIcon_Bow_Dvalin"
+  },
+  {
+    "name": "Cung Amos",
+    "icon": "UI_EquipIcon_Bow_Amos"
+  },
+  {
+    "name": "Tiếng Thở Dài Vô Tận",
+    "icon": "UI_EquipIcon_Bow_Widsith"
+  },
+  {
+    "name": "Rồng Kunwu",
+    "icon": "UI_EquipIcon_Bow_Hunters"
+  },
+  {
+    "name": "Cung Huyền Lê",
+    "icon": "UI_EquipIcon_Bow_Hunters"
+  },
+  {
+    "name": "Gương Vỡ",
+    "icon": "UI_EquipIcon_Bow_Hunters"
+  },
+  {
+    "name": "Ngôi Sao Cực Đông",
+    "icon": "UI_EquipIcon_Bow_Worldbane"
+  },
+  {
+    "name": "Nhược Thủy",
+    "icon": "UI_EquipIcon_Bow_Kirin"
+  },
+  {
+    "name": "Sấm Sét Rung Động",
+    "icon": "UI_EquipIcon_Bow_Narukami"
+  },
+  {
+    "name": "Con Đường Thợ Săn",
+    "icon": "UI_EquipIcon_Bow_Ayus"
+  },
+  {
+    "name": "Màn Ảo Thuật Đầu Tiên",
+    "icon": "UI_EquipIcon_Bow_Pledge"
+  },
+  {
+    "name": "Màn Mưa Tơ Lòng",
+    "icon": "UI_EquipIcon_Bow_Arcdange"
+  },
+  {
+    "name": "Xích Vũ Tinh Tựu",
+    "icon": "UI_EquipIcon_Bow_Qoyllorsnova"
+  },
+  {
+    "name": "Biên Niên Sử Bình Minh",
+    "icon": "UI_EquipIcon_Bow_Arianna"
+  }
+]

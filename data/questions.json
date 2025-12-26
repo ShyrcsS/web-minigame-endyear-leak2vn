@@ -1,0 +1,452 @@
+[
+  {
+    "id": "nk-001",
+    "question": "Nod-Krai là vùng tự trị nằm ở đâu?",
+    "choices": ["Phía nam Snezhnaya", "Phía bắc Mondstadt", "Phía đông Liyue", "Phía tây Sumeru"],
+    "correctIndex": 0,
+    "difficulty": 1,
+    "points": 1,
+    "tags": ["nod-krai"]
+  },
+  {
+    "id": "nk-002",
+    "question": "Nod-Krai được biết đến với biệt danh gì?",
+    "choices": ["Elysium", "Abyss", "Celestia", "Narukami"],
+    "correctIndex": 0,
+    "difficulty": 1,
+    "points": 1,
+    "tags": ["nod-krai"]
+  },
+  {
+    "id": "nk-003",
+    "question": "Nod-Krai có liên hệ sâu sắc với yếu tố nào?",
+    "choices": ["Ba Mặt Trăng", "Bảy Nguyên Tố", "Adeptus", "Vision"],
+    "correctIndex": 0,
+    "difficulty": 2,
+    "points": 2,
+    "tags": ["nod-krai"]
+  },
+  {
+    "id": "nk-004",
+    "question": "Người dân bản địa của Nod-Krai thờ phụng nữ thần nào?",
+    "choices": ["Kuutar (Columbina)", "Raiden Shogun", "Barbatos", "Morax"],
+    "correctIndex": 0,
+    "difficulty": 2,
+    "points": 2,
+    "tags": ["nod-krai", "frostmoon-scions"]
+  },
+  {
+    "id": "nk-005",
+    "question": "Archon Quest nào diễn ra tại Nod-Krai?",
+    "choices": ["Song of the Welkin Moon", "Perilous Trail", "Chasm Delvers", "Caribert"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "archon-quest"]
+  },
+  {
+    "id": "nk-006",
+    "question": "Nod-Krai là tàn dư của mặt trăng thứ tư nào?",
+    "choices": ["Mặt trăng thất bại hình thành", "Mặt trăng bị phá hủy", "Mặt trăng giả tạo", "Mặt trăng bị mất"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai"]
+  },
+  {
+    "id": "nk-007",
+    "question": "Địa điểm nào ở Nod-Krai có nhà hàng Speranza?",
+    "choices": ["Nasha Town", "Hiisi Island", "Clink-Clank Krumkake", "Frostmoon Forest"],
+    "correctIndex": 0,
+    "difficulty": 2,
+    "points": 2,
+    "tags": ["nod-krai", "locations"]
+  },
+  {
+    "id": "nk-008",
+    "question": "Frostmoon Scions sống ở đâu?",
+    "choices": ["Hiisi Island", "Nasha Town", "Snezhnaya Capital", "Mondstadt"],
+    "correctIndex": 0,
+    "difficulty": 2,
+    "points": 2,
+    "tags": ["nod-krai", "frostmoon-scions"]
+  },
+  {
+    "id": "nk-009",
+    "question": "Kuuvahki là sức mạnh đặc biệt từ đâu?",
+    "choices": ["Ba Mặt Trăng", "Bảy Nguyên Tố", "Vực Sâu", "Đảo Thiên Không"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "kuuvahki"]
+  },
+  {
+    "id": "nk-010",
+    "question": "Ai lãnh đạo căn cứ Fatui ở Nod-Krai?",
+    "choices": ["Il Dottore", "Columbina", "Signora", "Childe"],
+    "correctIndex": 0,
+    "difficulty": 2,
+    "points": 2,
+    "tags": ["nod-krai", "fatui"]
+  },
+  {
+    "id": "nk-011",
+    "question": "Nod-Krai bị tấn công bởi nhóm Vực Sâu nào?",
+    "choices": ["Cuộc Săn Hoang Dã", "Giáo Đoàn Vực Sâu", "The Fatui", "Kỵ Sĩ Tây Phong"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "wild-hunt"]
+  },
+  {
+    "id": "nk-012",
+    "question": "Ai kiểm soát Cuộc Săn Hoang Dã?",
+    "choices": ["Rerir", "Dottore", "Varka", "Traveler"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "wild-hunt", "khaenriah"]
+  },
+  {
+    "id": "nk-013",
+    "question": "Tổ chức nào được thành lập để chống Cuộc Săn Hoang Dã?",
+    "choices": ["Người Giữ Đèn", "Kỵ Sĩ Tây Phong", "Fatui", "Adeptus"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "lightkeepers"]
+  },
+  {
+    "id": "nk-014",
+    "question": "Kỵ Sĩ Tây Phong đến Nod-Krai cùng với ai?",
+    "choices": ["Varka", "Jean", "Diluc", "Kaeya"],
+    "correctIndex": 0,
+    "difficulty": 2,
+    "points": 2,
+    "tags": ["nod-krai", "knights-of-favonius"]
+  },
+  {
+    "id": "nk-015",
+    "question": "Sắc Lệnh Sao Nhạt liên quan đến hoạt động nào của Fatui?",
+    "choices": ["Vận chuyển vật liệu xây dựng", "Tấn công Vực Sâu", "Thờ phụng Mặt Trăng", "Giao thương Mora"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "fatui", "palestar-edict"]
+  },
+  {
+    "id": "nk-016",
+    "question": "Đảo Hiisi là quê hương của ai?",
+    "choices": ["Dòng Dõi Sương Nguyệt", "Quan Chấp Hành Fatui", "Adeptus", "Kỵ Sĩ Tây Phong"],
+    "correctIndex": 0,
+    "difficulty": 2,
+    "points": 2,
+    "tags": ["nod-krai", "hiisi-island", "frostmoon-scions"]
+  },
+  {
+    "id": "nk-017",
+    "question": "Columbina tìm nơi ẩn náu gần đâu?",
+    "choices": ["Đảo Hiisi", "Thị Trấn Nasha", "Bãi Cát Sao", "Sương Nguyệt Phường"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "columbina"]
+  },
+  {
+    "id": "nk-019",
+    "question": "Sảnh Trăng Bạc là nơi ẩn náu của ai?",
+    "choices": ["Columbina", "Il Dottore", "Varka", "Lauma"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "silvermoon-hall", "columbina"]
+  },
+  {
+    "id": "nk-020",
+    "question": "Ineffa là robot được tạo ra bởi ai?",
+    "choices": ["Aino", "Xilonen", "Chasca", "Ifa"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "ineffa", "aino"]
+  },
+  {
+    "id": "nk-021",
+    "question": "Ineffa là vị lãnh chúa tối cao thứ mấy?",
+    "choices": ["Thứ Mười Một", "Thứ Tám", "Thứ Mười Hai", "Thứ Chín"],
+    "correctIndex": 0,
+    "difficulty": 5,
+    "points": 5,
+    "tags": ["nod-krai", "ineffa", "sovereign-lords"]
+  },
+  {
+    "id": "nk-022",
+    "question": "Fatui gây căng thẳng ở Nod-Krai bằng cách nào?",
+    "choices": ["Kéo Mặt Trăng xuống", "Xây dựng căn cứ", "Tấn công Dòng Dõi Sương Nguyệt", "Đánh cắp Kuuvahki"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "fatui"]
+  },
+  {
+    "id": "nk-023",
+    "question": "Ineffa bị mắc chứng gì khi đến gần Natlan?",
+    "choices": ["Mất trí nhớ", "Hỏng hóc cơ khí", "Bị nhiễm Vực Sâu", "Mất sức mạnh"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "ineffa"]
+  },
+  {
+    "id": "nk-024",
+    "question": "Ai đã cứu Ineffa khỏi việc bị Fatui bắt giữ?",
+    "choices": ["Lianca", "Och-Kan", "Ixquieh", "Baraka"],
+    "correctIndex": 0,
+    "difficulty": 5,
+    "points": 5,
+    "tags": ["nod-krai", "ineffa", "lianca"]
+  },
+  {
+    "id": "nk-025",
+    "question": "Ineffa tìm kiếm điều gì ở Teyvat?",
+    "choices": ["Nơi thuộc về", "Sức mạnh", "Báo thù nhân loại", "Quay về Mặt Trăng"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "ineffa"]
+  },
+  {
+    "id": "nk-027",
+    "question": "Ai tạo ra Mười Ba Vị Lãnh Chúa Tối Cao?",
+    "choices": ["Hoả Long Vương", "Lôi Long Vương", "Thủy Long Vương", "Phong Long Vương"],
+    "correctIndex": 0,
+    "difficulty": 5,
+    "points": 5,
+    "tags": ["nod-krai", "sovereign-lords"]
+  },
+  {
+    "id": "nk-029",
+    "question": "Lãnh Chúa Tối Cao thù địch với ai?",
+    "choices": ["Nhân loại", "Fatui", "Dòng Dõi Sương Nguyệt", "Vực Sâu"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "eleventh-lord"]
+  },
+  {
+    "id": "nk-030",
+    "question": "Ineffa kích hoạt chế độ nào sau khi xem cuộn giấy dệt?",
+    "choices": ["Chế độ Hủy Diệt", "Chế độ Trò Chuyện", "Chế độ Bảo Vệ", "Chế độ Ký Ức"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "ineffa", "annihilation-mode"]
+  },
+  {
+    "id": "nk-031",
+    "question": "Tại sao Cỗ Máy Bí Ẩn tấn công gia đình Zhuoxin?",
+    "choices": ["Fatui buộc chúng làm vậy", "Chúng bị hỏng", "Chúng bảo vệ Nod-Krai", "Chúng tìm kiếm Ineffa"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "fatui", "automatons"]
+  },
+  {
+    "id": "nk-032",
+    "question": "Ai lãnh đạo trung đoàn đặc nhiệm Fatui tấn công Natlan?",
+    "choices": ["Marionette", "Capitano", "Dottore", "Signora"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "fatui", "marionette"]
+  },
+  {
+    "id": "nk-033",
+    "question": "Trong sự kiện 'Tên Ở Nơi Đâu?', nhóm Traveler khám phá tàn tích Hyperborean để tìm gì?",
+    "choices": ["Tên thật của Columbina", "Vũ khí cổ xưa", "Bí mật của Fatui", "Nơi ẩn náu của Vực Sâu"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "columbina", "hyperborean-ruins"]
+  },
+  {
+    "id": "nk-034",
+    "question": "Hư ảnh của người Hyperborea chỉ nói về điều gì?",
+    "choices": ["Nguyệt Thần", "Columbina", "Fatui", "Traveler"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "hyperborean", "moon-goddesses"]
+  },
+  {
+    "id": "nk-035",
+    "question": "Bích hoạ trong tàn tích kể về lịch sử của bao nhiêu mặt trăng Teyvat?",
+    "choices": ["Ba", "Một", "Bốn", "Hai"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "moons", "nibelung"]
+  },
+  {
+    "id": "nk-036",
+    "question": "Ai tạo ra ba mặt trăng Teyvat?",
+    "choices": ["Nibelung", "Đảo Thiên Không", "Thiên Lý", "Rerir"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "moons", "nibelung"]
+  },
+  {
+    "id": "nk-037",
+    "question": "Mặt trăng nào sống sót sau khi bị vỡ vụn, cho phép Columbina được sinh ra?",
+    "choices": ["Một trong ba", "Không có", "Tất cả", "Mặt trăng thứ tư"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "columbina", "moons"]
+  },
+  {
+    "id": "nk-040",
+    "question": "Tên đầy đủ của Columbina là gì?",
+    "choices": ["Columbina Hyposelenia", "Columbina Celestia", "Columbina Abyss", "Columbina Narukami"],
+    "correctIndex": 0,
+    "difficulty": 5,
+    "points": 5,
+    "tags": ["nod-krai", "columbina", "hyposelenia"]
+  },
+  {
+    "id": "nk-041",
+    "question": "Trong Đêm Cầu Nguyệt, Columbina được chào đón như thế nào?",
+    "choices": ["Là một người bạn thân thiết", "Là một nữ thần", "Là kẻ thù", "Là một khách hàng"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "columbina", "moon-prayer-night"]
+  },
+  {
+    "id": "nk-042",
+    "question": "Ai mai phục Columbina trong nghi thức trở về mặt trăng?",
+    "choices": ["Il Dottore", "Signora", "Childe", "Capitano"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "columbina", "dottore"]
+  },
+  {
+    "id": "nk-043",
+    "question": "Il Dottore tạo ra mặt trăng giả bằng cách nào?",
+    "choices": ["Sử dụng kiến thức Hyperborean", "Đánh cắp sức mạnh từ Đảo Thiên Không", "Hợp tác với Vực Sâu", "Sử dụng Vision"],
+    "correctIndex": 0,
+    "difficulty": 5,
+    "points": 5,
+    "tags": ["nod-krai", "dottore", "false-moon"]
+  },
+  {
+    "id": "nk-044",
+    "question": "Columbina hy sinh bản thân để làm gì?",
+    "choices": ["Ngăn chặn Dottore kiểm soát sức mạnh", "Trở về mặt trăng", "Giết Dottore", "Cứu Traveler"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "columbina", "sacrifice"]
+  },
+  {
+    "id": "nk-045",
+    "question": "Sau sự kiện, ai lãnh đạo nỗ lực tìm kiếm Columbina?",
+    "choices": ["Varka", "Traveler", "Arlecchino", "Nicole"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "columbina", "search"]
+  },
+  {
+    "id": "nk-046",
+    "question": "Trong 'Ánh Trăng Luân Phiên Lên Sân Khấu', Traveler và Paimon ở Nod-Krai bao lâu trước khi tập trung vào Đêm Cầu Nguyệt?",
+    "choices": ["Khoảng hai tháng", "Một tuần", "Một năm", "Một ngày"],
+    "correctIndex": 0,
+    "difficulty": 2,
+    "points": 2,
+    "tags": ["nod-krai", "shifting-light", "traveler"]
+  },
+  {
+    "id": "nk-047",
+    "question": "Columbina dự định trở về mặt trăng vào thời điểm nào?",
+    "choices": ["Đêm Cầu Nguyệt", "Lễ Hội Lồng Đèn", "Đêm Trắng", "Sinh Nhật Traveler"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "columbina", "moon-prayer-night"]
+  },
+  {
+    "id": "nk-048",
+    "question": "Hư ảnh lạ xuất hiện ở đâu với con tàu của Traveler?",
+    "choices": ["Bãi Cát Sao", "Đảo Hiisi", "Thị Trấn Nasha", "Rừng Sương Nguyệt"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "phantoms", "spaceship"]
+  },
+  {
+    "id": "nk-049",
+    "question": "Hư ảnh con người tái diễn cảnh lịch sử cố định như thế nào?",
+    "choices": ["Như một vở kịch tương tác", "Như một trận chiến thực tế", "Như một bữa tiệc", "Như một buổi biểu diễn múa"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "phantoms", "history"]
+  },
+  {
+    "id": "nk-050",
+    "question": "Durin thấy hư ảnh về điều gì trong cuộc điều tra?",
+    "choices": ["Thảm họa Khaenri'ah", "Đảo Thiên Không", "Natlan", "Sumeru"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "durin", "khaenriah-cataclysm"]
+  },
+  {
+    "id": "nk-051",
+    "question": "Flins tiết lộ tuổi của mình là bao nhiêu?",
+    "choices": ["600–700 năm", "100 năm", "2000 năm", "50 năm"],
+    "correctIndex": 0,
+    "difficulty": 5,
+    "points": 5,
+    "tags": ["nod-krai", "flins", "age"]
+  },
+  {
+    "id": "nk-052",
+    "question": "Alice tiết lộ Columbina đang biến mất vì sao?",
+    "choices": ["Không có tên thật để neo giữ sự tồn tại", "Bị Fatui tấn công", "Mất sức mạnh", "Quay về mặt trăng"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "columbina", "alice"]
+  },
+  {
+    "id": "nk-053",
+    "question": "Ai là ba người tương thích hoàn toàn với việc truyền năng lượng kuuvahki?",
+    "choices": ["Traveler, Lauma, Arlecchino", "Varka, Jahoda, Aino", "Durin, Albedo, Wanderer", "Nicole, Flins, Nefer"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "kuuvahki", "compatibility"]
+  },
+  {
+    "id": "nk-054",
+    "question": "Durin, Albedo và Wanderer làm gì với hư ảnh?",
+    "choices": ["Thay đổi số phận của một hư ảnh", "Phá hủy hư ảnh", "Tạo ra hư ảnh mới", "Bỏ qua hư ảnh"],
+    "correctIndex": 0,
+    "difficulty": 4,
+    "points": 4,
+    "tags": ["nod-krai", "durin", "albedo", "wanderer"]
+  },
+  {
+    "id": "nk-055",
+    "question": "Columbina nghe lén và học được điều gì?",
+    "choices": ["Mọi người đang tìm tên thật của cô", "Mọi người muốn cô ở lại", "Mọi người ghét cô", "Mọi người quên cô"],
+    "correctIndex": 0,
+    "difficulty": 3,
+    "points": 3,
+    "tags": ["nod-krai", "columbina", "overhear"]
+  }
+]
