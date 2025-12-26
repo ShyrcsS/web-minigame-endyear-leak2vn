@@ -13,6 +13,7 @@ const API_BASE = 'https://api.gileak2vn.shyrcs.com';
 const TURNSTILE_SITEKEY = '0x4AAAAAACJHkhQ69hr_Eg6b';
 
 let sessionToken = '';
+let turnstileWidgetId = '';
 
 async function fetchLeaderboardData(uid) {
   if (!API_BASE) throw new Error('Missing API base URL');
@@ -36,14 +37,41 @@ async function fetchSessionToken() {
   return sessionToken;
 }
 
-async function getTurnstileToken() {
+async function ensureTurnstileWidget() {
+  if (turnstileWidgetId) return turnstileWidgetId;
   if (!TURNSTILE_SITEKEY || TURNSTILE_SITEKEY === 'your_turnstile_sitekey_here') {
     throw new Error('Missing TURNSTILE_SITEKEY');
   }
-  if (!window.turnstile?.execute) {
+  if (!window.turnstile?.render) {
     throw new Error('Turnstile script not loaded');
   }
-  return await window.turnstile.execute(TURNSTILE_SITEKEY, { action: 'submit' });
+  const container = document.createElement('div');
+  container.id = 'turnstile-widget';
+  container.style.display = 'none';
+  document.body.appendChild(container);
+  turnstileWidgetId = window.turnstile.render(container, {
+    sitekey: TURNSTILE_SITEKEY,
+    size: 'invisible',
+  });
+  return turnstileWidgetId;
+}
+
+async function getTurnstileToken() {
+  const widgetId = await ensureTurnstileWidget();
+  if (!window.turnstile?.execute) throw new Error('Turnstile execute missing');
+
+  return await new Promise((resolve, reject) => {
+    try {
+      window.turnstile.execute(widgetId, {
+        action: 'submit',
+        callback: (token) => resolve(token),
+        'error-callback': () => reject(new Error('Turnstile error')),
+        'expired-callback': () => reject(new Error('Turnstile expired')),
+      });
+    } catch (err) {
+      reject(err);
+    }
+  });
 }
 
 const els = {
