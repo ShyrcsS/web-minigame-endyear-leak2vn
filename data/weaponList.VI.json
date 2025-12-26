@@ -100,18 +100,6 @@
     "icon": "UI_EquipIcon_Sword_Pleroma"
   },
   {
-    "name": "Danh Đao \"Trường Phái Isshin\"",
-    "icon": "UI_EquipIcon_Sword_YoutouEnchanted"
-  },
-  {
-    "name": "Danh Đao \"Trường Phái Isshin\"",
-    "icon": "UI_EquipIcon_Sword_YoutouShattered"
-  },
-  {
-    "name": "Danh Đao \"Trường Phái Isshin\"",
-    "icon": "UI_EquipIcon_Sword_YoutouEnchanted"
-  },
-  {
     "name": "Toukabou Shigure",
     "icon": "UI_EquipIcon_Sword_Kasabouzu"
   },
@@ -228,10 +216,6 @@
     "icon": "UI_EquipIcon_Sword_Motsognir"
   },
   {
-    "name": "Mảnh Trăng Ánh Sáng",
-    "icon": "UI_EquipIcon_Sword_SilverwareSaw"
-  },
-  {
     "name": "Kiếm Huấn Luyện",
     "icon": "UI_EquipIcon_Claymore_Aniki"
   },
@@ -250,10 +234,6 @@
   {
     "name": "Kiếm Bạch Thiết",
     "icon": "UI_EquipIcon_Claymore_Tin"
-  },
-  {
-    "name": "Kiếm Thạch Anh",
-    "icon": "UI_EquipIcon_Claymore_Quartz"
   },
   {
     "name": "Gậy Thu Phục",
@@ -426,10 +406,6 @@
   {
     "name": "Hắc Anh Thương",
     "icon": "UI_EquipIcon_Pole_Noire"
-  },
-  {
-    "name": "Cột Cờ",
-    "icon": "UI_EquipIcon_Pole_Flagpole"
   },
   {
     "name": "Tai Ương Của Rồng",
