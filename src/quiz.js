@@ -96,5 +96,13 @@ export function pickQuizSet(allQuestions, { pickPoolSize = 30, askCount = 10, pr
     }
   }
 
-  return picked;
+  return picked.map((q) => {
+    const shuffledChoices = shuffle([...q.choices]);
+    const newCorrectIndex = shuffledChoices.indexOf(q.choices[q.correctIndex]);
+    return {
+      ...q,
+      choices: shuffledChoices,
+      correctIndex: newCorrectIndex,
+    };
+  });
 }
