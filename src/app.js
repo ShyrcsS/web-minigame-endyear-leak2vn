@@ -52,6 +52,16 @@ async function ensureTurnstileWidget() {
   turnstileWidgetId = window.turnstile.render(container, {
     sitekey: TURNSTILE_SITEKEY,
     size: 'invisible',
+    callback: (token) => {
+      // Store the token for later use
+      window.turnstileToken = token;
+    },
+    'error-callback': () => {
+      console.error('Turnstile error');
+    },
+    'expired-callback': () => {
+      console.error('Turnstile expired');
+    },
   });
   return turnstileWidgetId;
 }
@@ -60,17 +70,24 @@ async function getTurnstileToken() {
   const widgetId = await ensureTurnstileWidget();
   if (!window.turnstile?.execute) throw new Error('Turnstile execute missing');
 
+  // Execute the widget
+  window.turnstile.execute(widgetId, { action: 'submit' });
+
+  // Wait for the token
   return await new Promise((resolve, reject) => {
-    try {
-      window.turnstile.execute(widgetId, {
-        action: 'submit',
-        callback: (token) => resolve(token),
-        'error-callback': () => reject(new Error('Turnstile error')),
-        'expired-callback': () => reject(new Error('Turnstile expired')),
-      });
-    } catch (err) {
-      reject(err);
-    }
+    const checkToken = () => {
+      if (window.turnstileToken) {
+        const token = window.turnstileToken;
+        delete window.turnstileToken;
+        resolve(token);
+      } else {
+        setTimeout(checkToken, 100);
+      }
+    };
+    checkToken();
+
+    // Timeout after 10 seconds
+    setTimeout(() => reject(new Error('Turnstile timeout')), 10000);
   });
 }
 
