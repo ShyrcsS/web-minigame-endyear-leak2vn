@@ -1,6 +1,11 @@
 import { loadQuestions, pickQuizSet } from '../quiz.js';
 import { hide, show } from '../dom.js';
 
+function setText(el, value) {
+  if (!el) return;
+  el.textContent = String(value);
+}
+
 function stopQuizTimer(session) {
   if (session.quizTimerId) {
     clearInterval(session.quizTimerId);
@@ -30,9 +35,9 @@ export function createQuizFlow({
 }) {
   function renderQuestion() {
     const q = session.quiz[session.quizIndex];
-    els.qIdx.textContent = String(session.quizIndex + 1);
-    els.qScore.textContent = String(session.quizScore);
-    els.qText.textContent = q.question;
+    setText(els.qIdx, session.quizIndex + 1);
+    setText(els.qScore, session.quizScore);
+    setText(els.qText, q.question);
     els.qChoices.innerHTML = '';
 
     q.choices.forEach((choice, i) => {
@@ -76,7 +81,7 @@ export function createQuizFlow({
         quizDone: true,
       });
 
-      els.quizFinalScore.textContent = String(session.loreScore);
+      setText(els.quizFinalScore, session.loreScore);
       hide(els.quizBox);
       show(els.quizDone);
 
@@ -99,7 +104,7 @@ export function createQuizFlow({
     session.quizIndex = 0;
     session.quizScore = 0;
 
-    els.qScore.textContent = '0';
+    setText(els.qScore, '0');
     show(els.stepQuiz);
     hide(els.stepIntake);
 
@@ -116,11 +121,11 @@ export function createQuizFlow({
     stopQuizTimer(session);
     hide(els.quizDone);
     show(els.quizBox);
-    els.qText.textContent = 'Đang tải câu hỏi…';
+    setText(els.qText, 'Đang tải câu hỏi…');
     els.qChoices.innerHTML = '';
-    els.qIdx.textContent = '0';
-    els.qScore.textContent = '0';
-    els.qTimer.textContent = '10';
+    setText(els.qIdx, '0');
+    setText(els.qScore, '0');
+    setText(els.qTimer, '10');
   }
 
   return {
