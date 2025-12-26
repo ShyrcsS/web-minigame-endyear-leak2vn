@@ -3,7 +3,6 @@ import { loadImage } from './puzzle/image.js';
 const LIST_URL = './data/characterList.VI.json';
 const SKILL_BASE = './assets/Skills/';
 
-const ROUNDS = 5;
 const TIME_LIMIT = 15;
 const BASE_SCORE = 320;
 const BONUS_PER_SEC = 30;
@@ -138,6 +137,7 @@ function renderFillBox(el, typedText) {
 export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore, onComplete }) {
   let running = false;
   let round = 0;
+  let totalRounds = 0;
   let score = 0;
   let timeLeft = TIME_LIMIT;
   let timerId = null;
@@ -158,7 +158,9 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
   }
 
   function updateHud() {
-    movesEl.textContent = `${Math.min(round, ROUNDS)}/${ROUNDS}`;
+    const total = totalRounds || '∞';
+    const currentRound = totalRounds ? Math.min(round, totalRounds) : round;
+    movesEl.textContent = `${currentRound}/${total}`;
     timeEl.textContent = String(Math.max(0, timeLeft));
   }
 
@@ -168,10 +170,11 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
     stopTimer();
     startButton.disabled = false;
     startButton.textContent = 'Chơi lại';
+    const totalLabel = totalRounds || round;
     const msg = reason === 'giveup' 
       ? `Đã bỏ cuộc sau ${round} màn. Tổng điểm: <b>${score}</b>.`
-      : `Đã xong ${ROUNDS} màn. Tổng điểm: <b>${score}</b>.`;
-    gridEl.innerHTML = `<div class="waifu-finish">${msg}</div>`;
+      : `Đã hỏi hết ${totalLabel} nhân vật. Tổng điểm: <b>${score}</b>.`;
+      gridEl.innerHTML = `<div class="waifu-finish">${msg}</div>`;
     timeLeft = 0;
     updateHud();
     onScore(score);
@@ -227,7 +230,7 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
     onScore(score);
 
     setTimeout(() => {
-      if (round >= ROUNDS) {
+      if (totalRounds && round >= totalRounds) {
         finishGame();
       } else {
         playRound().catch(handleError);
@@ -236,11 +239,28 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
   }
 
   async function playRound() {
+    try {
+      const list = await loadCharacters();
+      totalRounds = list.length || totalRounds;
+    } catch (err) {
+      handleError(err);
+      return;
+    }
+
     round += 1;
     timeLeft = TIME_LIMIT;
     updateHud();
 
-    current = await pickRoundData(usedCharNames);
+    try {
+      current = await pickRoundData(usedCharNames);
+    } catch (err) {
+      const msg = String(err?.message || '');
+      if (msg.includes('Đã hỏi hết nhân vật')) {
+        finishGame();
+        return;
+      }
+      throw err;
+    }
     usedCharNames.add(current.name);
 
     gridEl.innerHTML = `
@@ -330,4 +350,13 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
   timeLeft = 0;
   updateHud();
   onScore(0);
+  
+  return {
+    isRunning: () => running,
+    giveUp: () => {
+      if (running) {
+        finishGame({ reason: 'giveup' });
+      }
+    },
+  };
 }

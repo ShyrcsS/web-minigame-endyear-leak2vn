@@ -209,4 +209,13 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
   }
 
   startButton.addEventListener('click', start);
+  
+  return {
+    isRunning: () => running,
+    giveUp: () => {
+      if (running) {
+        endRun({ ok: false, reason: 'giveup' });
+      }
+    },
+  };
 }

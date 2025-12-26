@@ -13,7 +13,6 @@ const API_BASE = 'https://api.gileak2vn.shyrcs.com';
 const TURNSTILE_SITEKEY = '0x4AAAAAACJHkhQ69hr_Eg6b';
 
 let sessionToken = '';
-let turnstileWidgetId = '';
 
 async function fetchLeaderboardData(uid) {
   if (!API_BASE) throw new Error('Missing API base URL');
@@ -37,57 +36,82 @@ async function fetchSessionToken() {
   return sessionToken;
 }
 
-async function ensureTurnstileWidget() {
-  if (turnstileWidgetId) return turnstileWidgetId;
+function ensureTurnstileReady() {
   if (!TURNSTILE_SITEKEY || TURNSTILE_SITEKEY === 'your_turnstile_sitekey_here') {
     throw new Error('Missing TURNSTILE_SITEKEY');
   }
-  if (!window.turnstile?.render) {
+  if (!window.turnstile?.render || !window.turnstile?.execute || !window.turnstile?.remove) {
     throw new Error('Turnstile script not loaded');
   }
+}
+
+function createHiddenTurnstileContainer() {
   const container = document.createElement('div');
-  container.id = 'turnstile-widget';
-  container.style.display = 'none';
+  container.style.position = 'fixed';
+  container.style.width = '1px';
+  container.style.height = '1px';
+  container.style.opacity = '0';
+  container.style.pointerEvents = 'none';
+  container.style.left = '-9999px';
+  container.style.bottom = '0';
+  container.setAttribute('aria-hidden', 'true');
   document.body.appendChild(container);
-  turnstileWidgetId = window.turnstile.render(container, {
-    sitekey: TURNSTILE_SITEKEY,
-    size: 'invisible',
-    callback: (token) => {
-      // Store the token for later use
-      window.turnstileToken = token;
-    },
-    'error-callback': () => {
-      console.error('Turnstile error');
-    },
-    'expired-callback': () => {
-      console.error('Turnstile expired');
-    },
-  });
-  return turnstileWidgetId;
+  return container;
 }
 
 async function getTurnstileToken() {
-  const widgetId = await ensureTurnstileWidget();
-  if (!window.turnstile?.execute) throw new Error('Turnstile execute missing');
+  ensureTurnstileReady();
 
-  // Execute the widget
-  window.turnstile.execute(widgetId, { action: 'submit' });
+  const container = createHiddenTurnstileContainer();
 
-  // Wait for the token
   return await new Promise((resolve, reject) => {
-    const checkToken = () => {
-      if (window.turnstileToken) {
-        const token = window.turnstileToken;
-        delete window.turnstileToken;
-        resolve(token);
-      } else {
-        setTimeout(checkToken, 100);
-      }
-    };
-    checkToken();
+    let settled = false;
 
-    // Timeout after 10 seconds
-    setTimeout(() => reject(new Error('Turnstile timeout')), 10000);
+    const cleanup = (widgetId) => {
+      if (settled) return;
+      settled = true;
+      try {
+        window.turnstile.remove(widgetId);
+      } catch (err) {
+        console.warn('[turnstile] remove failed:', err?.message || err);
+      }
+      container.remove();
+    };
+
+    const widgetId = window.turnstile.render(container, {
+      sitekey: TURNSTILE_SITEKEY,
+      size: 'invisible',
+      retry: 'auto',
+      callback: (token) => {
+        cleanup(widgetId);
+        resolve(token);
+      },
+      'error-callback': () => {
+        cleanup(widgetId);
+        reject(new Error('Turnstile error'));
+      },
+      'expired-callback': () => {
+        cleanup(widgetId);
+        reject(new Error('Turnstile expired'));
+      },
+      'timeout-callback': () => {
+        cleanup(widgetId);
+        reject(new Error('Turnstile timeout'));
+      },
+    });
+
+    try {
+      window.turnstile.execute(widgetId, { action: 'submit' });
+    } catch (err) {
+      cleanup(widgetId);
+      reject(err);
+      return;
+    }
+
+    setTimeout(() => {
+      cleanup(widgetId);
+      reject(new Error('Turnstile timeout'));
+    }, 12000);
   });
 }
 
