@@ -306,7 +306,7 @@ function buildGaPlayHtml(kind) {
         <p class="muted tiny">Nhìn Icon của nhân vật, gõ phím trực tiếp vào box dưới. Đúng sẽ tự qua màn.</p>
         <div class="memory-grid" id="memory-grid" aria-label="Guess waifu box"></div>
         <div class="row">
-          <div class="pill">Màn: <span id="mem-moves">0</span>/5</div>
+          <div class="pill">Màn: <span id="mem-moves">0</span></div>
           <div class="pill">Còn: <span id="mem-time">0</span>s</div>
           <div class="pill">Điểm game 3: <span id="score-memory">0</span></div>
           <button id="btn-memory-start" class="btn" type="button">Bắt đầu</button>
