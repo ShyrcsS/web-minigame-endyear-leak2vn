@@ -454,3 +454,14 @@ main().catch((err) => {
   console.error(err);
   alert('Có lỗi khi khởi chạy. Mở DevTools Console để xem chi tiết.');
 });
+
+// Update event date automatically
+const eventDateEl = document.getElementById('event-date');
+if (eventDateEl) {
+  const now = new Date();
+  const vnDate = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Ho_Chi_Minh' }));
+  const day = String(vnDate.getDate()).padStart(2, '0');
+  const month = String(vnDate.getMonth() + 1).padStart(2, '0');
+  const year = vnDate.getFullYear();
+  eventDateEl.textContent = `${day}/${month}/${year}`;
+}
