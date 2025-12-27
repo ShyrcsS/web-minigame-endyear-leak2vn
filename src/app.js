@@ -1,5 +1,5 @@
 import { loadProgress, saveProgress, clearProgress, loadState, saveState, computeBonusFromRank } from './storage.js';
-import { uploadScreenshot, submitWheelParticipation } from './api.js';
+import { uploadScreenshot, submitWheelParticipation, createEntry } from './api.js';
 import { setupReactionGame } from './games/reaction.js';
 import { setupTapGame } from './games/tap.js';
 import { setupMemoryGame } from './games/memory.js';
@@ -186,6 +186,7 @@ const intakeFlow = createIntakeFlow({
   els,
   session,
   apiBase: API_BASE,
+  createEntry,
   uploadScreenshot,
   normalizeFacebookUrl,
   saveProgress,

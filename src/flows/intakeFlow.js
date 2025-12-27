@@ -10,6 +10,7 @@ export function createIntakeFlow({
   els,
   session,
   apiBase,
+  createEntry,
   uploadScreenshot,
   normalizeFacebookUrl,
   saveProgress,
@@ -89,9 +90,32 @@ export function createIntakeFlow({
           loreScore: 0,
           quizDone: false,
         });
+
+        if (createEntry) {
+          try {
+            await createEntry({
+              apiBase,
+              entry: {
+                uid: session.uid,
+                ingameName: session.ingameName,
+                fbLink: session.fbLink,
+                imageKey: session.imageKey,
+                loreScore: 0,
+                gaTotal: 0,
+                winBonus: 0,
+              },
+            });
+          } catch (errCreate) {
+            const msg = String(errCreate?.message || '').toLowerCase();
+            // Nếu UID đã tồn tại thì bỏ qua
+            if (!msg.includes('uid already exists')) {
+              throw errCreate;
+            }
+          }
+        }
       } catch (err) {
         console.error(err);
-        alert(`Upload ảnh lỗi: ${err?.message || 'lỗi không rõ'}`);
+        alert(`Upload ảnh hoặc tạo hồ sơ lỗi: ${err?.message || 'lỗi không rõ'}`);
         return;
       }
 
