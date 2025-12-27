@@ -232,10 +232,14 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
     onScore(score);
 
     setTimeout(() => {
-      if (totalRounds && round >= totalRounds) {
-        finishGame();
+      if (correct) {
+        if (totalRounds && round >= totalRounds) {
+          finishGame();
+        } else {
+          playRound().catch(handleError);
+        }
       } else {
-        playRound().catch(handleError);
+        finishGame({ reason: 'timeout' });
       }
     }, 700);
   }
