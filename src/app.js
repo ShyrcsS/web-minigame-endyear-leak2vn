@@ -499,6 +499,19 @@ function wireActions() {
   els.btnGaG3.addEventListener('click', () => openGamePage('g3'));
 }
 
+async function verifyAccount(uid) {
+  try {
+    const resp = await fetch(`${API_BASE}/entries?uid=${encodeURIComponent(uid)}`);
+    if (!resp.ok) return false;
+    const data = await resp.json();
+    // Check if account exists in server response
+    return data?.items?.some(item => item.uid === uid) || false;
+  } catch (err) {
+    console.warn('Failed to verify account:', err);
+    return false; // On error, assume account doesn't exist to be safe
+  }
+}
+
 async function main() {
   intakeFlow.wireScreenshotPreview();
   setupGames();
@@ -507,16 +520,27 @@ async function main() {
   // If the user already completed the quiz on this browser, jump straight to play section.
   const progress = loadProgress();
   if (progress?.quizDone && progress.uid && progress.ingameName && progress.fbLink) {
-    session.uid = progress.uid;
-    session.ingameName = progress.ingameName;
-    session.fbLink = progress.fbLink;
-    session.imageKey = progress.imageKey || '';
-    session.loreScore = Number(progress.loreScore || 0);
+    // Verify account still exists on server before proceeding
+    const accountExists = await verifyAccount(progress.uid);
+    if (accountExists) {
+      session.uid = progress.uid;
+      session.ingameName = progress.ingameName;
+      session.fbLink = progress.fbLink;
+      session.imageKey = progress.imageKey || '';
+      session.loreScore = Number(progress.loreScore || 0);
 
-    hide(els.stepIntake);
-    hide(els.stepQuiz);
-    show(els.stepGa);
-    renderGaLobby();
+      hide(els.stepIntake);
+      hide(els.stepQuiz);
+      show(els.stepGa);
+      renderGaLobby();
+    } else {
+      // Account was deleted, clear local progress and show intake form
+      console.log('Account no longer exists, resetting local progress');
+      clearProgress();
+      show(els.stepIntake);
+      hide(els.stepQuiz);
+      hide(els.stepGa);
+    }
   }
 }
 
