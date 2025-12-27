@@ -107,7 +107,6 @@ export function createIntakeFlow({
             });
           } catch (errCreate) {
             const msg = String(errCreate?.message || '').toLowerCase();
-            // Nếu UID đã tồn tại thì bỏ qua
             if (!msg.includes('uid already exists')) {
               throw errCreate;
             }
