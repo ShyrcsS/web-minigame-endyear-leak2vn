@@ -11,6 +11,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
   let questionIdx = 0;
   let usedIconsForQuestion = new Set();
   let allWeapons = [];
+  let loadedImages = new Map(); // Cache for loaded images
   let startTime = null;
 
   function clearTimer() {
@@ -142,6 +143,16 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
     // Pick one unused weapon as correct answer
     const correctWeapon = available[Math.floor(Math.random() * available.length)];
 
+    // Load image for correct weapon if not already loaded
+    if (!loadedImages.has(correctWeapon.imgUrl)) {
+      try {
+        await loadImage(correctWeapon.imgUrl);
+        loadedImages.set(correctWeapon.imgUrl, true);
+      } catch (err) {
+        throw new Error(`Không thể tải ảnh vũ khí: ${correctWeapon.name}`);
+      }
+    }
+
     // Pick 3 other weapons (can reuse names/icons for wrong answers)
     const wrongCandidates = shuffle(allWeapons.filter((w) => w.icon !== correctWeapon.icon)).slice(0, 3);
     const options = shuffle([correctWeapon, ...wrongCandidates].map((w) => ({ name: w.name, icon: w.icon })));
@@ -169,6 +180,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
     questionIdx = 0;
     totalScore = 0;
     usedIconsForQuestion.clear();
+    loadedImages.clear();
     onScore(totalScore);
     setStartDisabled(true);
     startButton.textContent = 'Đang chạy…';
@@ -176,7 +188,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
     setBoxHtml('<div class="muted">Đang tải danh sách vũ khí…</div>');
 
     try {
-      // Load all weapons once
+      // Load weapon list without preloading images
       if (!allWeapons.length) {
         const list = await loadWeaponList();
         const base = new URL('../../assets/Weapon/', import.meta.url);
@@ -187,13 +199,8 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
           if (seenIcon.has(w.icon)) continue;
           const imgName = `${w.icon}_Awaken.png`;
           const imgUrl = new URL(imgName, base).toString();
-          try {
-            await loadImage(imgUrl);
-            loaded.push({ name: w.name, icon: w.icon, imgUrl });
-            seenIcon.add(w.icon);
-          } catch {
-            // ignore missing assets
-          }
+          loaded.push({ name: w.name, icon: w.icon, imgUrl });
+          seenIcon.add(w.icon);
         }
 
         if (loaded.length < 4) throw new Error('Lỗi, không đủ 4 asset vũ khí.');

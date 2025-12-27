@@ -34,11 +34,14 @@ export async function uploadScreenshot({ apiBase, file }) {
   const contentType = guessImageContentType(file);
   if (!contentType) throw new Error('Ảnh không đúng định dạng (chỉ nhận image/*)');
 
+  // Encode filename to handle non-ISO-8859-1 characters
+  const encodedFilename = btoa(unescape(encodeURIComponent(file.name || 'screenshot')));
+
   const resp = await fetch(`${apiBase}/upload`, {
     method: 'POST',
     headers: {
       'content-type': contentType,
-      'x-filename': file.name || 'screenshot',
+      'x-filename': encodedFilename,
     },
     body: file,
   });
