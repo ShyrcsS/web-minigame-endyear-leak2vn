@@ -9,6 +9,7 @@ const BONUS_PER_SEC = 30;
 
 let cachedCharacters = null;
 const iconCache = new Map();
+let runStart = null;
 
 function shuffle(arr) {
   const a = [...arr];
@@ -178,7 +179,8 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
     timeLeft = 0;
     updateHud();
     onScore(score);
-    if (onComplete) onComplete({ score });
+    const durationMs = runStart ? Math.max(0, Math.round(performance.now() - runStart)) : null;
+    if (onComplete) onComplete({ score, durationMs });
   }
 
   function handleError(err) {
@@ -326,6 +328,7 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
   async function start() {
     if (running) return;
     running = true;
+    runStart = performance.now();
     round = 0;
     score = 0;
     timeLeft = TIME_LIMIT;

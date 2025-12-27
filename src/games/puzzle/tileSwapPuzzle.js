@@ -31,6 +31,7 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
   let bg = '';
   let usedIcons = new Set();
   let charCount = 0;
+  let runStart = null;
 
   function setStatus(text) {
     box.classList.remove('puzzle-grid');
@@ -161,6 +162,8 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
     if (running) return;
     running = true;
 
+    runStart = performance.now();
+
     total = 0;
     level = 3;
     charCount = 0;
@@ -188,7 +191,8 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
     if (charCount >= MAX_CHARS) {
       running = false;
       setStatus(`HOÀN THÀNH ${MAX_CHARS} nhân vật! Tổng điểm: ${total}`);
-      if (onComplete) onComplete({ score: total });
+      const durationMs = runStart ? Math.max(0, Math.round(performance.now() - runStart)) : null;
+      if (onComplete) onComplete({ score: total, durationMs });
       return;
     }
 
@@ -213,7 +217,8 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
     running = false;
     stopTick();
     setStatus(`Đã bỏ cuộc. Tổng điểm: ${total}`);
-    if (onComplete) onComplete({ score: total });
+    const durationMs = runStart ? Math.max(0, Math.round(performance.now() - runStart)) : null;
+    if (onComplete) onComplete({ score: total, durationMs });
   }
 
   return { start, stop, giveUp, isRunning: () => running, setStatus, nextLevel, loadBg };

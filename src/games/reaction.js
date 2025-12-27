@@ -11,6 +11,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
   let questionIdx = 0;
   let usedIconsForQuestion = new Set();
   let allWeapons = [];
+  let startTime = null;
 
   function clearTimer() {
     if (timerId) {
@@ -48,7 +49,8 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
             : 'Sai đáp án.';
     }
 
-    if (onComplete) onComplete({ score: totalScore });
+    const durationMs = startTime ? Math.max(0, Math.round(performance.now() - startTime)) : null;
+    if (onComplete) onComplete({ score: totalScore, durationMs });
   }
 
   async function handleAnswer(ok, reason) {
@@ -160,6 +162,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
 
   async function start() {
     if (running) return;
+    startTime = performance.now();
     running = true;
     clearTimer();
     timeLeft = TOTAL_TIME;

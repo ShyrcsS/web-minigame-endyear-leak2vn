@@ -17,7 +17,7 @@ export function createGaFlow({
   function updateTotalAndSubmitState() {
   }
 
-  function recordLocalPlay({ game, score, globalRank = null }) {
+  function recordLocalPlay({ game, score, durationMs = null, globalRank = null }) {
     if (!session.uid) return;
     // console.log('[recordLocalPlay] Saving play:', { game, score, globalRank, uid: session.uid });
     const state = loadState();
@@ -45,6 +45,7 @@ export function createGaFlow({
               ingameName: session.ingameName,
               game,
               score,
+              durationMs,
             },
             sessionToken,
             turnstileToken,
@@ -70,9 +71,9 @@ export function createGaFlow({
           els.scoreReaction.textContent = String(score);
           updateTotalAndSubmitState();
         },
-        onComplete: ({ score }) => {
+        onComplete: ({ score, durationMs }) => {
           btnReactionGiveup.disabled = true;
-          recordLocalPlay({ game: 'g1', score });
+          recordLocalPlay({ game: 'g1', score, durationMs });
         },
       });
 
@@ -105,9 +106,9 @@ export function createGaFlow({
           els.scoreTap.textContent = String(score);
           updateTotalAndSubmitState();
         },
-        onComplete: ({ score }) => {
+        onComplete: ({ score, durationMs }) => {
           btnTapGiveup.disabled = true;
-          recordLocalPlay({ game: 'g2', score });
+          recordLocalPlay({ game: 'g2', score, durationMs });
         },
       });
       
@@ -142,9 +143,9 @@ export function createGaFlow({
           els.scoreMemory.textContent = String(score);
           updateTotalAndSubmitState();
         },
-        onComplete: ({ score }) => {
+        onComplete: ({ score, durationMs }) => {
           btnMemGiveup.disabled = true;
-          recordLocalPlay({ game: 'g3', score });
+          recordLocalPlay({ game: 'g3', score, durationMs });
         },
       });
       
