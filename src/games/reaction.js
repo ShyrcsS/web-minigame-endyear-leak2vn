@@ -93,7 +93,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
     const blurPx = computeBlurPx(timeLeft, TOTAL_TIME);
 
     // Mark this weapon icon as used
-    usedIconsForQuestion.add(correct.icon);
+    usedIconsForQuestion.add(String(correct.icon || '').trim());
 
     setBoxHtml(`
       <div class="weapon-guess">
@@ -117,7 +117,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
       btn.className = 'btn choice';
       btn.textContent = w.name;
       btn.addEventListener('click', () => {
-        const ok = w.icon === correct.icon;
+        const ok = String(w.icon || '').trim() === String(correct.icon || '').trim();
         handleAnswer(ok, ok ? 'ok' : 'wrong');
       });
       optsEl.appendChild(btn);
@@ -137,7 +137,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
 
   async function buildRound() {
     // Filter weapons that haven't been used as the correct answer yet
-    const available = allWeapons.filter((w) => !usedIconsForQuestion.has(w.icon));
+    const available = allWeapons.filter((w) => !usedIconsForQuestion.has(String(w.icon || '').trim()));
     if (!available.length) throw new Error('Đã hỏi hết vũ khí.');
 
     // Pick one unused weapon as correct answer
@@ -154,11 +154,11 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
     }
 
     // Pick 3 other weapons (can reuse names/icons for wrong answers)
-    const wrongCandidates = shuffle(allWeapons.filter((w) => w.icon !== correctWeapon.icon)).slice(0, 3);
-    const options = shuffle([correctWeapon, ...wrongCandidates].map((w) => ({ name: w.name, icon: w.icon })));
+    const wrongCandidates = shuffle(allWeapons.filter((w) => String(w.icon || '').trim() !== String(correctWeapon.icon || '').trim())).slice(0, 3);
+    const options = shuffle([correctWeapon, ...wrongCandidates].map((w) => ({ name: w.name, icon: String(w.icon || '').trim() })));
 
     return {
-      correct: { name: correctWeapon.name, icon: correctWeapon.icon },
+      correct: { name: correctWeapon.name, icon: String(correctWeapon.icon || '').trim() },
       options,
       imgSrc: correctWeapon.imgUrl,
     };

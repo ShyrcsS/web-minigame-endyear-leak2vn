@@ -31,7 +31,10 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
   let bg = '';
   let usedIcons = new Set();
   let charCount = 0;
+  let hintTimer = 0;
+  let hintInterval = null;
   let runStart = null;
+  let tileElements = []; // cache tile elements
 
   function setStatus(text) {
     box.classList.remove('puzzle-grid');
@@ -47,17 +50,85 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
     }
   }
 
+  function stopHint() {
+    if (hintInterval) {
+      clearInterval(hintInterval);
+      hintInterval = null;
+    }
+    hintTimer = 0;
+    document.querySelectorAll('.hint-overlay').forEach(el => el.remove());
+  }
+
   function startTick() {
     stopTick();
+    stopHint();
     elapsed = 0;
+    hintTimer = 0;
     timerEl.textContent = '0';
+
     tickId = setInterval(() => {
       elapsed += 1;
       timerEl.textContent = String(elapsed);
     }, 1000);
+
+    // Show hint every 15 seconds
+    hintInterval = setInterval(() => {
+      hintTimer += 15;
+      if (hintTimer >= 15) {
+        showHint();
+      }
+    }, 15000);
   }
 
-  let tileElements = []; // cache tile elements
+  function showHint() {
+    // Find a tile that is not in correct position
+    const wrongTiles = [];
+    for (let i = 0; i < cells.length; i++) {
+      if (cells[i] !== i) {
+        wrongTiles.push({ position: i, correctId: i, currentId: cells[i] });
+      }
+    }
+
+    if (wrongTiles.length === 0) return; // All correct
+
+    // Pick a random wrong tile
+    const hintData = wrongTiles[Math.floor(Math.random() * wrongTiles.length)];
+
+    // Show hint on the tile itself
+    const tileEl = tileElements[hintData.position];
+    if (!tileEl) return;
+
+    // Create hint overlay
+    let hintOverlay = tileEl.querySelector('.hint-overlay');
+    if (!hintOverlay) {
+      hintOverlay = document.createElement('div');
+      hintOverlay.className = 'hint-overlay';
+      hintOverlay.style.cssText = `
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-size: 10px;
+        font-weight: bold;
+        z-index: 10;
+        pointer-events: none;
+      `;
+      tileEl.style.position = 'relative';
+      tileEl.appendChild(hintOverlay);
+    }
+
+    hintOverlay.textContent = String(cells[hintData.position] + 1);
+
+    // Hide hint after 3 seconds
+    setTimeout(() => {
+      if (hintOverlay) {
+        hintOverlay.remove();
+      }
+    }, 3000);
+  }
 
   function makeScramble() {
     cells = Array.from({ length: level * level }, (_, i) => i);
@@ -81,7 +152,10 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
     box.classList.add('puzzle-box');
     box.innerHTML = '';
     box.style.gridTemplateColumns = `repeat(${level}, 1fr)`;
-    tileElements = [];
+    tileElements.length = 0; // Clear array instead of reassigning
+
+    // Remove any existing hint overlays
+    document.querySelectorAll('.hint-overlay').forEach(el => el.remove());
 
     for (let i = 0; i < cells.length; i += 1) {
       const id = cells[i];
