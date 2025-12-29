@@ -259,7 +259,14 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
   async function playRound() {
     try {
       const list = await loadCharacters();
-      totalRounds = list.length || totalRounds;
+      try {
+        const checks = await Promise.all(list.map((item) => iconExists(`${SKILL_BASE}${item.iconId}.png`).catch(() => false)));
+        const playableCount = checks.filter(Boolean).length;
+        totalRounds = playableCount || list.length || totalRounds;
+      } catch (e) {
+        // Fallback to raw list length if existence checks fail
+        totalRounds = list.length || totalRounds;
+      }
     } catch (err) {
       handleError(err);
       return;
