@@ -13,10 +13,7 @@ function solved(cells) {
   return true;
 }
 
-function scoreLevel(n, moves, seconds) {
-  // Simplified scoring, will be overridden by time-based scoring in onComplete
-  return 1;
-}
+
 
 export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComplete }) {
   const MAX_CHARS = 114;
@@ -36,6 +33,7 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
   let paused = false;
   let runStart = null;
   let tileElements = []; // cache tile elements
+  let levelStart = null;
 
   function setStatus(text) {
     box.classList.remove('puzzle-grid');
@@ -192,7 +190,13 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
 
   function finishLevel() {
     stopTick();
-    total += scoreLevel(level, moves, elapsed);
+    const levelTime = (performance.now() - levelStart) / 1000;
+    let levelScore;
+    if (levelTime < 150) levelScore = 5000;
+    else if (levelTime < 250) levelScore = 2000;
+    else if (levelTime < 350) levelScore = 750;
+    else levelScore = 300;
+    total += levelScore;
     onScore(total);
     nextLevel();
   }
@@ -230,6 +234,7 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
   }
 
   function startLevel() {
+    levelStart = performance.now();
     moves = 0;
     pick = -1;
     makeScramble();

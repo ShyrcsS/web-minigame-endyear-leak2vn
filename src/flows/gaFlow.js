@@ -109,20 +109,13 @@ export function createGaFlow({
           updateTotalAndSubmitState();
         },
         onComplete: ({ score, durationMs }) => {
-          // Calculate score based on total time
-          const totalSeconds = Math.floor(durationMs / 1000);
-          let newScore;
-          if (totalSeconds < 150) newScore = 1000 * 5;
-          else if (totalSeconds < 250) newScore = 500 * 4;
-          else if (totalSeconds < 350) newScore = 250 * 3;
-          else newScore = 150 * 2;
-          session.tapScore = newScore;
+          session.tapScore = score;
           session.tapPlayed = true;
-          els.scoreTap.textContent = String(newScore);
+          els.scoreTap.textContent = String(score);
           updateTotalAndSubmitState();
           btnTapGiveup.disabled = true;
           btnTapPause.disabled = true;
-          recordLocalPlay({ game: 'g2', score: newScore, durationMs });
+          recordLocalPlay({ game: 'g2', score, durationMs });
         },
       });
       
