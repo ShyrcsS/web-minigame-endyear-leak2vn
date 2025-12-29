@@ -77,7 +77,7 @@ export function createGaFlow({
         },
       });
 
-      btnReaction.addEventListener('click', () => {
+      btnReaction?.addEventListener('click', () => {
         setTimeout(() => {
           if (game.isRunning()) {
             btnReactionGiveup.disabled = false;
@@ -85,7 +85,7 @@ export function createGaFlow({
         }, 100);
       });
       
-      btnReactionGiveup.addEventListener('click', () => {
+      btnReactionGiveup?.addEventListener('click', () => {
         game.giveUp();
         btnReactionGiveup.disabled = true;
       });
@@ -119,8 +119,8 @@ export function createGaFlow({
         },
       });
       
-      btnTap.addEventListener('click', () => {
-        btnTapPause.disabled = false;
+      btnTap?.addEventListener('click', () => {
+        if (btnTapPause) btnTapPause.disabled = false;
         setTimeout(() => {
           if (game.isRunning()) {
             btnTapGiveup.disabled = false;
@@ -128,12 +128,12 @@ export function createGaFlow({
         }, 100);
       });
       
-      btnTapGiveup.addEventListener('click', () => {
+      btnTapGiveup?.addEventListener('click', () => {
         game.giveUp();
         btnTapGiveup.disabled = true;
       });
       
-      btnTapPause.addEventListener('click', () => {
+      btnTapPause?.addEventListener('click', () => {
         if (!game.isPaused()) {
           game.pause();
           btnTapPause.textContent = 'Resume';
@@ -167,7 +167,7 @@ export function createGaFlow({
         },
       });
       
-      btnMem.addEventListener('click', () => {
+      btnMem?.addEventListener('click', () => {
         setTimeout(() => {
           if (game.isRunning()) {
             if (btnMemGiveup) btnMemGiveup.disabled = false;
@@ -176,9 +176,9 @@ export function createGaFlow({
         }, 100);
       });
       
-      btnMemGiveup.addEventListener('click', () => {
+      btnMemGiveup?.addEventListener('click', () => {
         game.giveUp();
-        btnMemGiveup.disabled = true;
+        if (btnMemGiveup) btnMemGiveup.disabled = true;
       });
     }
 
