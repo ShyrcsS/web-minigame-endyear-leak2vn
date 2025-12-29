@@ -74,7 +74,24 @@ async function loadCharacters() {
 
   if (!list.length) throw new Error('Danh sách icon trống.');
 
-  cachedCharacters = list;
+  // Check existence and preload images once
+  try {
+    await Promise.all(list.map(async (it) => {
+      const url = `${SKILL_BASE}${it.iconId}.png`;
+      const ok = await iconExists(url).catch(() => false);
+      it._exists = !!ok;
+      if (ok) {
+        try { await loadImage(url); } catch (e)
+      }
+    }));
+  } catch (e) {
+    // ignore
+  }
+
+  const playable = list.filter((it) => it._exists);
+  if (!playable.length) throw new Error('Không tìm thấy icon ảnh hợp lệ.');
+
+  cachedCharacters = playable;
   return cachedCharacters;
 }
 
@@ -110,22 +127,15 @@ async function pickRoundData(usedIconIds) {
   const list = await loadCharacters();
   const available = list.filter((c) => !usedIconIds.has(c.iconId));
   if (!available.length) throw new Error('Đã hỏi hết icon.');
-
   const shuffled = shuffle(available);
-
-  for (const item of shuffled) {
-    const url = `${SKILL_BASE}${item.iconId}.png`;
-    if (await iconExists(url)) {
-      return {
-        name: item.name,
-        iconId: item.iconId,
-        icons: [url],
-        targets: buildTargets(item.name),
-      };
-    }
-  }
-
-  throw new Error('Không tìm được icon hợp lệ.');
+  const item = shuffled[0];
+  const url = `${SKILL_BASE}${item.iconId}.png`;
+  return {
+    name: item.name,
+    iconId: item.iconId,
+    icons: [url],
+    targets: buildTargets(item.name),
+  };
 }
 
 function renderFillBox(el, typedText) {
@@ -259,14 +269,8 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
   async function playRound() {
     try {
       const list = await loadCharacters();
-      try {
-        const checks = await Promise.all(list.map((item) => iconExists(`${SKILL_BASE}${item.iconId}.png`).catch(() => false)));
-        const playableCount = checks.filter(Boolean).length;
-        totalRounds = playableCount || list.length || totalRounds;
-      } catch (e) {
-        // Fallback to raw list length if existence checks fail
-        totalRounds = list.length || totalRounds;
-      }
+      // cachedCharacters already contains only playable icons
+      totalRounds = list.length || totalRounds;
     } catch (err) {
       handleError(err);
       return;
