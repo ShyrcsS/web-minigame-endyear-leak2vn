@@ -81,7 +81,7 @@ async function loadCharacters() {
       const ok = await iconExists(url).catch(() => false);
       it._exists = !!ok;
       if (ok) {
-        try { await loadImage(url); } catch (e)
+        try { await loadImage(url); } catch (e) { /* ignore */ }
       }
     }));
   } catch (e) {
