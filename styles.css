@@ -116,7 +116,7 @@ input[type="file"], input{
 .waifu-type{ position: relative; display: grid; gap: 8px; padding: 10px; border: 1px dashed var(--border); border-radius: 8px; background: #fafafa; }
 .waifu-type__label{ font-size: 13px; color: var(--muted); }
 .waifu-fill{ display: grid; gap: 6px; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: #fff; cursor: text; }
-.waifu-fill__row{ display: flex; justify-content: center; gap: 6px; font-family: Consolas, Menlo, monospace; letter-spacing: 1px; }
+.waifu-fill__row{ display: flex; justify-content: center; gap: 6px; font-family: Consolas, Menlo, monospace; letter-spacing: 1px; direction: ltr; flex-direction: row; }
 .waifu-fill__typed{ min-height: 18px; }
 .waifu-fill__cell{ min-width: 14px; text-align: center; }
 .waifu-fill__underscores .waifu-fill__cell{ color: var(--muted); }

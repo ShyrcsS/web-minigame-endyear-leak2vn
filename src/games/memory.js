@@ -47,11 +47,32 @@ async function loadCharacters() {
   if (!res.ok) throw new Error('Không tải được danh sách nhân vật.');
 
   const data = await res.json();
-  const list = (Array.isArray(data) ? data : [])
-    .map((c) => ({ name: c?.name || '', iconIds: collectIconIds(c) }))
-    .filter((c) => c.name && c.iconIds.length >= 2);
+  // Build per-icon list but apply filters here (do not change JSON)
+  const allowedPrefix = /^(Skill_S_|Skill_E_|UI_Talent_S_)/;
+  const raw = (Array.isArray(data) ? data : []);
+  const items = [];
 
-  if (!list.length) throw new Error('Danh sách nhân vật trống.');
+  for (const c of raw) {
+    const name = c?.name || '';
+    if (!name) continue;
+    const ids = collectIconIds(c).filter((id) => {
+      if (!id) return false;
+      if (/_U_/.test(id)) return false; // exclude unwanted constellation UI_U_ entries
+      return allowedPrefix.test(id);
+    });
+    for (const id of ids) {
+      items.push({ name, iconId: id });
+    }
+  }
+
+  // Deduplicate by iconId
+  const map = new Map();
+  for (const it of items) {
+    if (!map.has(it.iconId)) map.set(it.iconId, it);
+  }
+  const list = Array.from(map.values());
+
+  if (!list.length) throw new Error('Danh sách icon trống.');
 
   cachedCharacters = list;
   return cachedCharacters;
@@ -85,35 +106,26 @@ function matchesAnswer(typed, targets) {
   return targets.some((t) => typed === t || typed.endsWith(t) || t.endsWith(typed));
 }
 
-async function pickRoundData(usedCharNames) {
+async function pickRoundData(usedIconIds) {
   const list = await loadCharacters();
-  const available = list.filter((c) => !usedCharNames.has(c.name));
-  if (!available.length) throw new Error('Đã hỏi hết nhân vật.');
-  
+  const available = list.filter((c) => !usedIconIds.has(c.iconId));
+  if (!available.length) throw new Error('Đã hỏi hết icon.');
+
   const shuffled = shuffle(available);
 
-  for (const char of shuffled) {
-    const pool = shuffle(char.iconIds);
-    let foundIcon = null;
-
-    for (const id of pool) {
-      const url = `${SKILL_BASE}${id}.png`;
-      if (await iconExists(url)) {
-        foundIcon = url;
-        break;
-      }
-    }
-
-    if (foundIcon) {
+  for (const item of shuffled) {
+    const url = `${SKILL_BASE}${item.iconId}.png`;
+    if (await iconExists(url)) {
       return {
-        name: char.name,
-        icons: [foundIcon],
-        targets: buildTargets(char.name),
+        name: item.name,
+        iconId: item.iconId,
+        icons: [url],
+        targets: buildTargets(item.name),
       };
     }
   }
 
-  throw new Error('Không tìm được icon hợp lệ (skill/talent/cons).');
+  throw new Error('Không tìm được icon hợp lệ.');
 }
 
 function renderFillBox(el, typedText) {
@@ -149,7 +161,7 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
   let inputEl = null;
   let fillEl = null;
   let focusHandler = null;
-  let usedCharNames = new Set();
+  let usedIconIds = new Set();
 
   function stopTimer() {
     if (timerId) {
@@ -258,7 +270,7 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
     updateHud();
 
     try {
-      current = await pickRoundData(usedCharNames);
+      current = await pickRoundData(usedIconIds);
     } catch (err) {
       const msg = String(err?.message || '');
       if (msg.includes('Đã hỏi hết nhân vật')) {
@@ -267,7 +279,7 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
       }
       throw err;
     }
-    usedCharNames.add(current.name);
+    usedIconIds.add(current.iconId || current.name);
 
     gridEl.innerHTML = `
       <div class="waifu-icons">

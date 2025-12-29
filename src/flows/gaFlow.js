@@ -170,24 +170,10 @@ export function createGaFlow({
       btnMem.addEventListener('click', () => {
         setTimeout(() => {
           if (game.isRunning()) {
-            btnMemGiveup.disabled = false;
-            btnTapPause.disabled = false;
+            if (btnMemGiveup) btnMemGiveup.disabled = false;
+            if (btnTapPause) btnTapPause.disabled = false;
           }
         }, 100);
-      });
-
-      btnTapPause.addEventListener('click', () => {
-        alert('Pause button clicked');
-        console.log('Pause button clicked, isRunning:', game.isRunning());
-        if (game.isRunning()) {
-          console.log('Calling game.pause()');
-          game.pause();
-          console.log('Paused:', game.isPaused());
-          btnTapPause.textContent = game.isPaused() ? 'Tiếp tục' : 'Tạm dừng';
-          console.log('Button text set to:', btnTapPause.textContent);
-        } else {
-          console.log('Game not running');
-        }
       });
       
       btnMemGiveup.addEventListener('click', () => {
