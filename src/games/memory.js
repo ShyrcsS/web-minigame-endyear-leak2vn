@@ -355,7 +355,7 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
     round = 0;
     score = 0;
     timeLeft = TIME_LIMIT;
-    usedCharNames.clear();
+    usedIconIds.clear();
     onScore(0);
     updateHud();
 
