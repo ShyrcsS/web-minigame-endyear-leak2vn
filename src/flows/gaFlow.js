@@ -92,12 +92,14 @@ export function createGaFlow({
     }
 
     const btnTap = document.getElementById('btn-tap-start');
+    const btnTapPause = document.getElementById('btn-tap-pause');
     const btnTapGiveup = document.getElementById('btn-tap-giveup');
     const boxTap = document.getElementById('tap-box');
     const timerTap = document.getElementById('tap-timer');
-    if (btnTap && boxTap && timerTap && btnTapGiveup) {
+    if (btnTap && btnTapPause && boxTap && timerTap && btnTapGiveup) {
       const game = setupTapGame({
         startButton: btnTap,
+        pauseButton: btnTapPause,
         box: boxTap,
         timerEl: timerTap,
         onScore: (score) => {
@@ -107,12 +109,25 @@ export function createGaFlow({
           updateTotalAndSubmitState();
         },
         onComplete: ({ score, durationMs }) => {
+          // Calculate score based on total time
+          const totalSeconds = Math.floor(durationMs / 1000);
+          let newScore;
+          if (totalSeconds < 150) newScore = 1000 * 5;
+          else if (totalSeconds < 250) newScore = 500 * 4;
+          else if (totalSeconds < 350) newScore = 250 * 3;
+          else newScore = 150 * 2;
+          session.tapScore = newScore;
+          session.tapPlayed = true;
+          els.scoreTap.textContent = String(newScore);
+          updateTotalAndSubmitState();
           btnTapGiveup.disabled = true;
-          recordLocalPlay({ game: 'g2', score, durationMs });
+          btnTapPause.disabled = true;
+          recordLocalPlay({ game: 'g2', score: newScore, durationMs });
         },
       });
       
       btnTap.addEventListener('click', () => {
+        btnTapPause.disabled = false;
         setTimeout(() => {
           if (game.isRunning()) {
             btnTapGiveup.disabled = false;
@@ -123,6 +138,16 @@ export function createGaFlow({
       btnTapGiveup.addEventListener('click', () => {
         game.giveUp();
         btnTapGiveup.disabled = true;
+      });
+      
+      btnTapPause.addEventListener('click', () => {
+        if (!game.isPaused()) {
+          game.pause();
+          btnTapPause.textContent = 'Resume';
+        } else {
+          game.resume();
+          btnTapPause.textContent = 'Pause';
+        }
       });
     }
 
@@ -153,8 +178,23 @@ export function createGaFlow({
         setTimeout(() => {
           if (game.isRunning()) {
             btnMemGiveup.disabled = false;
+            btnTapPause.disabled = false;
           }
         }, 100);
+      });
+
+      btnTapPause.addEventListener('click', () => {
+        alert('Pause button clicked');
+        console.log('Pause button clicked, isRunning:', game.isRunning());
+        if (game.isRunning()) {
+          console.log('Calling game.pause()');
+          game.pause();
+          console.log('Paused:', game.isPaused());
+          btnTapPause.textContent = game.isPaused() ? 'Tiếp tục' : 'Tạm dừng';
+          console.log('Button text set to:', btnTapPause.textContent);
+        } else {
+          console.log('Game not running');
+        }
       });
       
       btnMemGiveup.addEventListener('click', () => {

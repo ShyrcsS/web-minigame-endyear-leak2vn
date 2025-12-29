@@ -297,6 +297,7 @@ function buildGaPlayHtml(kind) {
           <div class="pill">Thời gian: <span id="tap-timer">5</span>s</div>
           <div class="pill">Điểm game 2: <span id="score-tap">0</span></div>
           <button id="btn-tap-start" class="btn" type="button">Bắt đầu</button>
+          <button id="btn-tap-pause" class="btn btn--small" type="button" disabled>Tạm dừng</button>
           <button id="btn-tap-giveup" class="btn btn--small" type="button" disabled>Bỏ cuộc</button>
         </div>
       </div>

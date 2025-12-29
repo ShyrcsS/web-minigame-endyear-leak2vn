@@ -14,8 +14,8 @@ function solved(cells) {
 }
 
 function scoreLevel(n, moves, seconds) {
-  const base = n * n * 10;
-  return Math.max(1, Math.round(base - (moves * 2 + seconds)));
+  // Simplified scoring, will be overridden by time-based scoring in onComplete
+  return 1;
 }
 
 export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComplete }) {
@@ -32,7 +32,8 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
   let usedIcons = new Set();
   let charCount = 0;
   let hintTimer = 0;
-  let hintInterval = null;
+  let hintTimeout = null;
+  let paused = false;
   let runStart = null;
   let tileElements = []; // cache tile elements
 
@@ -51,9 +52,9 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
   }
 
   function stopHint() {
-    if (hintInterval) {
-      clearInterval(hintInterval);
-      hintInterval = null;
+    if (hintTimeout) {
+      clearTimeout(hintTimeout);
+      hintTimeout = null;
     }
     hintTimer = 0;
     document.querySelectorAll('.hint-overlay').forEach(el => el.remove());
@@ -71,13 +72,23 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
       timerEl.textContent = String(elapsed);
     }, 1000);
 
-    // Show hint every 15 seconds
-    hintInterval = setInterval(() => {
-      hintTimer += 15;
-      if (hintTimer >= 15) {
-        showHint();
-      }
-    }, 15000);
+    // Start hint cycle
+    scheduleNextHint();
+  }
+
+  function scheduleNextHint() {
+    if (!running) return;
+    const correct = cells.filter((val, idx) => val === idx).length;
+    const percent = correct / cells.length;
+    let interval;
+    if (percent < 0.3) interval = 20;
+    else if (percent < 0.5) interval = 15;
+    else if (percent < 0.7) interval = 10;
+    else if (percent >= 0.9) interval = 5;
+    else interval = 10; // default
+    hintTimeout = setTimeout(() => {
+      showHint();
+    }, interval * 1000);
   }
 
   function showHint() {
@@ -127,6 +138,7 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
       if (hintOverlay) {
         hintOverlay.remove();
       }
+      scheduleNextHint();
     }, 3000);
   }
 
@@ -150,6 +162,7 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
   function render() {
     box.classList.add('puzzle-grid');
     box.classList.add('puzzle-box');
+    box.style.position = 'relative';
     box.innerHTML = '';
     box.style.gridTemplateColumns = `repeat(${level}, 1fr)`;
     tileElements.length = 0; // Clear array instead of reassigning
@@ -185,7 +198,7 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
   }
 
   function click(i) {
-    if (!running) return;
+    if (!running || paused) return;
 
     if (pick === -1) {
       pick = i;
@@ -257,7 +270,51 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
 
   function stop() {
     running = false;
+    paused = false;
     stopTick();
+  }
+
+  function pause() {
+    console.log('pause() called, running:', running);
+    if (!running) return;
+    paused = !paused;
+    console.log('paused set to:', paused);
+    if (paused) {
+      stopTick();
+      stopHint();
+      // Overlay
+      let overlay = box.querySelector('.pause-overlay');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'pause-overlay';
+        overlay.style.cssText = `
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          font-weight: bold;
+          z-index: 100;
+          pointer-events: none;
+          border: 2px solid white;
+        `;
+        overlay.textContent = 'TẠM DỪNG';
+        box.appendChild(overlay);
+        console.log('Overlay added');
+      }
+    } else {
+      // Remove overlay
+      const overlay = box.querySelector('.pause-overlay');
+      if (overlay) overlay.remove();
+      startTick();
+      console.log('Overlay removed, tick started');
+    }
   }
 
   async function nextLevel() {
@@ -295,5 +352,33 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
     if (onComplete) onComplete({ score: total, durationMs });
   }
 
-  return { start, stop, giveUp, isRunning: () => running, setStatus, nextLevel, loadBg };
+  function pause() {
+    paused = true;
+    stopHint();
+    const overlay = document.createElement('div');
+    overlay.className = 'pause-overlay';
+    overlay.textContent = 'PAUSED';
+    overlay.style.position = 'absolute';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.background = 'black';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.fontSize = '24px';
+    overlay.style.color = 'white';
+    overlay.style.zIndex = '10';
+    box.appendChild(overlay);
+  }
+
+  function resume() {
+    paused = false;
+    scheduleNextHint();
+    const overlay = box.querySelector('.pause-overlay');
+    if (overlay) overlay.remove();
+  }
+
+  return { start, stop, giveUp, isRunning: () => running, pause, isPaused: () => paused, setStatus, nextLevel, loadBg };
 }

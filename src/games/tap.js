@@ -2,7 +2,7 @@ import { pickPlayableIconUrl } from './puzzle/characterIcon.js';
 import { cropSquarePng, loadImage } from './puzzle/image.js';
 import { createTileSwapPuzzle } from './puzzle/tileSwapPuzzle.js';
 
-export function setupTapGame({ startButton, box, timerEl, onScore, onComplete }) {
+export function setupTapGame({ startButton, pauseButton, box, timerEl, onScore, onComplete }) {
   const fetchImage = async (usedIcons) => {
     const result = await pickPlayableIconUrl(usedIcons);
     const img = await loadImage(result.url);
@@ -29,5 +29,7 @@ export function setupTapGame({ startButton, box, timerEl, onScore, onComplete })
   return {
     start,
     giveUp: () => puzzle.giveUp(),
+    pause: () => puzzle.pause(),
+    isPaused: () => puzzle.isPaused(),
     isRunning: () => puzzle.isRunning(),
   };}

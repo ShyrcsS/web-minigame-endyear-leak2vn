@@ -21,24 +21,24 @@
         <form id="intake-form" class="form">
           <label class="field">
             <span class="field__label">UID</span>
-            <input id="uid" name="uid" inputmode="numeric" autocomplete="off" placeholder="VD: 831135168" required />
+            <input id="uid" name="uid" inputmode="numeric" autocomplete="off" placeholder="VD: 831135168" maxlength="12" required />
           </label>
 
           <label class="field">
             <span class="field__label">Tên ingame</span>
-            <input id="ingameName" name="ingameName" autocomplete="off" placeholder="VD: Shyrcs" required />
+            <input id="ingameName" name="ingameName" autocomplete="off" placeholder="VD: Shyrcs" maxlength="30" required />
           </label>
 
           <label class="field">
             <span class="field__label">Link Facebook cá nhân</span>
-            <input id="fbLink" name="fbLink" type="url" autocomplete="off" placeholder="https://www.facebook.com/shyrcs.neko/" required />
+            <input id="fbLink" name="fbLink" type="url" autocomplete="off" placeholder="https://www.facebook.com/shyrcs.neko/" maxlength="100" required />
             <span class="field__hint">Dùng để liên hệ nếu trúng GA.</span>
           </label>
 
           <label class="field">
             <span class="field__label">Tải ảnh chụp (PNG/JPG)</span>
             <input id="screenshot" name="screenshot" type="file" accept="image/*" required />
-            <span class="field__hint">Ảnh là bắt buộc. Phải thấy rõ: Tên ingame + UID + Số ngày chơi + Thành tựu</span>
+            <span class="field__hint">Ảnh là bắt buộc. Phải thấy rõ: Tên ingame + UID + Số ngày chơi + Thành tựu (tối đa 5MB)</span>
           </label>
 
           <div id="screenshot-preview" class="preview" aria-live="polite"></div>
