@@ -202,7 +202,7 @@ export function setupMemoryGame({ startButton, gridEl, movesEl, timeEl, onScore,
     updateHud();
     onScore(score);
     const durationMs = runStart ? Math.max(0, Math.round(performance.now() - runStart)) : null;
-    if (onComplete) onComplete({ score, durationMs });
+    if (onComplete) onComplete({ score, durationMs, completed: round });
   }
 
   function handleError(err) {

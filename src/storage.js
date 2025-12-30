@@ -58,6 +58,7 @@ export function addPlay(state, play) {
     score: Number(play?.score || 0),
     timestamp: play?.timestamp || new Date().toISOString(),
     globalRank: Number.isFinite(play?.globalRank) ? Number(play.globalRank) : null,
+    completed: Number.isFinite(play?.completed) ? Number(play.completed) : null,
   };
   
   // console.log('[addPlay] Adding entry:', entry);

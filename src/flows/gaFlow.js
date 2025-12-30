@@ -17,7 +17,7 @@ export function createGaFlow({
   function updateTotalAndSubmitState() {
   }
 
-  function recordLocalPlay({ game, score, durationMs = null, globalRank = null }) {
+  function recordLocalPlay({ game, score, durationMs = null, globalRank = null, completed = null }) {
     if (!session.uid) return;
     // console.log('[recordLocalPlay] Saving play:', { game, score, globalRank, uid: session.uid });
     const state = loadState();
@@ -27,6 +27,7 @@ export function createGaFlow({
       game,
       score,
       globalRank,
+      completed,
     });
     saveState(next);
     // console.log('[recordLocalPlay] Play saved, new state:', next);
@@ -46,6 +47,7 @@ export function createGaFlow({
               game,
               score,
               durationMs,
+              completed,
             },
             sessionToken,
             turnstileToken,
@@ -71,9 +73,9 @@ export function createGaFlow({
           els.scoreReaction.textContent = String(score);
           updateTotalAndSubmitState();
         },
-        onComplete: ({ score, durationMs }) => {
+        onComplete: ({ score, durationMs, completed }) => {
           btnReactionGiveup.disabled = true;
-          recordLocalPlay({ game: 'g1', score, durationMs });
+          recordLocalPlay({ game: 'g1', score, durationMs, completed });
         },
       });
 
@@ -108,14 +110,14 @@ export function createGaFlow({
           els.scoreTap.textContent = String(score);
           updateTotalAndSubmitState();
         },
-        onComplete: ({ score, durationMs }) => {
+        onComplete: ({ score, durationMs, completed }) => {
           session.tapScore = score;
           session.tapPlayed = true;
           els.scoreTap.textContent = String(score);
           updateTotalAndSubmitState();
           btnTapGiveup.disabled = true;
           btnTapPause.disabled = true;
-          recordLocalPlay({ game: 'g2', score, durationMs });
+          recordLocalPlay({ game: 'g2', score, durationMs, completed });
         },
       });
       
@@ -161,9 +163,9 @@ export function createGaFlow({
           els.scoreMemory.textContent = String(score);
           updateTotalAndSubmitState();
         },
-        onComplete: ({ score, durationMs }) => {
+        onComplete: ({ score, durationMs, completed }) => {
           btnMemGiveup.disabled = true;
-          recordLocalPlay({ game: 'g3', score, durationMs });
+          recordLocalPlay({ game: 'g3', score, durationMs, completed });
         },
       });
       

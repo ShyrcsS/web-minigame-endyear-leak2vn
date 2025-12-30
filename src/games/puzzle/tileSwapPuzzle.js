@@ -328,7 +328,7 @@ export function createTileSwapPuzzle({ box, timerEl, onScore, fetchImage, onComp
       running = false;
       setStatus(`HOÀN THÀNH ${MAX_CHARS} nhân vật! Tổng điểm: ${total}`);
       const durationMs = runStart ? Math.max(0, Math.round(performance.now() - runStart)) : null;
-      if (onComplete) onComplete({ score: total, durationMs });
+      if (onComplete) onComplete({ score: total, durationMs, completed: charCount });
       return;
     }
 

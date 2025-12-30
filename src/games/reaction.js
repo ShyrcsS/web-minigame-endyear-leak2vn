@@ -52,7 +52,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
     }
 
     const durationMs = startTime ? Math.max(0, Math.round(performance.now() - startTime)) : null;
-    if (onComplete) onComplete({ score: totalScore, durationMs });
+    if (onComplete) onComplete({ score: totalScore, durationMs, completed: questionIdx });
   }
 
   async function handleAnswer(ok, reason) {
