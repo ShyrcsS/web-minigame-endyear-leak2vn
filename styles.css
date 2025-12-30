@@ -328,6 +328,7 @@ input {
   border-radius: 8px;
   background: #fff;
   cursor: text;
+  direction: ltr;
 }
 .waifu-fill__row {
   display: flex;
@@ -336,6 +337,7 @@ input {
   font-family: Consolas, Menlo, monospace;
   letter-spacing: 1px;
   direction: ltr;
+  unicode-bidi: bidi-override;
   flex-direction: row;
 }
 .waifu-fill__typed {
@@ -354,6 +356,7 @@ input {
   width: 1px;
   height: 1px;
   pointer-events: none;
+  direction: ltr;
 }
 .waifu-status {
   min-height: 16px;
