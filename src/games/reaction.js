@@ -10,6 +10,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
   let totalScore = 0;
   let questionIdx = 0;
   let usedIconsForQuestion = new Set();
+  let questionAnswered = false;
   let allWeapons = [];
   let loadedImages = new Map(); // Cache for loaded images
   let startTime = null;
@@ -56,6 +57,8 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
 
   async function handleAnswer(ok, reason) {
     if (!running) return;
+    if (questionAnswered) return;
+    questionAnswered = true;
 
     if (!ok) {
       endRun({ ok: false, reason });
@@ -166,6 +169,7 @@ export function setupReactionGame({ startButton, box, onScore, onComplete }) {
 
   async function startNextQuestion() {
     questionIdx += 1;
+    questionAnswered = false;
     timeLeft = TOTAL_TIME;
     current = await buildRound();
     renderRound();
